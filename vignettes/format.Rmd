@@ -1,0 +1,89 @@
+---
+title: "Represent Packages with pkglite.txt"
+output:
+  rmarkdown::html_vignette:
+    css: "custom.css"
+    toc: true
+    toc_float: false
+    toc_depth: 4
+    number_sections: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Represent Packages with pkglite.txt}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = "")
+```
+
+The output file of `pkglite::pack()` uses a standard file format to allow the
+storage, exchange, and parsing of the packaged assets. The specification
+for this file is detailed below.
+
+# Filename and extension
+
+Unless specified, the output file is automatically named.
+
+- A single R package named `pkg1` is packed into `pkg1.txt`.
+- Multiple R packages named `pkg1`, `pkg2`, ... are packed into `pkglite.txt`.
+
+The file extension is `.txt` so that one can recognize, open, and inspect
+it directly using regular text editors.
+
+# File format
+
+The overall goal here is to make the file format unambiguous, human-friendly,
+and machine-readable. For `pkglite.txt`, we follow the
+[DCF (Debian Control File) format](https://www.debian.org/doc/debian-policy/ch-controlfields.html),
+used by Debian, R, and RStudio IDE.
+The minimalist, time-tested format allows us to save key-value data in
+plain text that humans can easily read and write.
+The format is also extendable to include more information
+about the assets being packed.
+
+# File structure
+
+A `pkglite.txt` is structured following these rules:
+
+- One file contains multiple DCF format blocks.
+- Each block includes the metadata and the content of one file in an R package.
+- Each block is separated by a blank line. The last block has a trailing blank line.
+
+# Field names and values
+
+Each block has at least four key-value pairs called **fields**. For example:
+
+```
+Package: pkglite
+File: R/pkglite-package.R
+Format: text
+Content:
+  #' @keywords internal
+  "_PACKAGE"
+```
+
+The keys and values in these fields are separated by a colon and a whitespace
+except for `Content`, whose value part starts in a new line.
+
+## `Package`
+
+R package name. Since one `pkglite.txt` might contain files from multiple packages,
+this field is used to declare the package the file is under explicitly.
+
+This design implies that each `pkglite.txt` can only store multiple
+R packages with unique names.
+
+## `File`
+
+The relative path (to the package root) of the file.
+
+## `Format`
+
+File format category. It can be `text` or `binary`. This determines how the file
+content will be read and written.
+
+## `Content`
+
+The file content. The text format files are stored as-is, while the binary files
+are stored in the hexadecimal format, following the RTF format convention.
+In both cases, two whitespaces are added before each line of the value part.

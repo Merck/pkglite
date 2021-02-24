@@ -1,0 +1,169 @@
+---
+title: "Compact Package Representations"
+output:
+  rmarkdown::html_vignette:
+    css: "custom.css"
+    toc: true
+    toc_float: false
+    toc_depth: 4
+    number_sections: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Compact Package Representations}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = "")
+```
+
+# Introduction
+
+`pkglite` offers a solution for converting R package source code to a compact,
+text-based representation and restore the source package structure from
+the representation. There are three specific aims:
+
+1. To provide a **tool** for packing and restoring R packages as plain text
+assets that are easy to store, transfer, and review.
+1. To provide a **grammar** for specifying the file packing scope that is
+functional, precise, and extendable.
+1. To provide a **standard** for exchanging the packed asset that is
+unambiguous, human-friendly, and machine-readable.
+
+To achieve these goals, we developed a pipe-friendly workflow, the concept of
+file specifications and file collections, and a format specification for
+the output file `pkglite.txt`. These designs allow us to leave a clear and
+skimmable trace in the code when generating such compact representations,
+thus improves reproducibility.
+
+# Example workflow
+
+To demonstrate the basic usage of pkglite, we will show how to pack and unpack
+one or multiple R packages.
+
+```{r}
+library("pkglite")
+```
+
+## Pack one package
+
+First, locate the input package directory and the output file:
+
+```{r}
+pkg <- system.file("examples/pkg1", package = "pkglite")
+txt <- tempfile(fileext = ".txt")
+```
+
+Use the following chain of calls to pack a default set of files in
+the R package under directory `pkg` into the file `txt`:
+
+```{r}
+pkg %>%
+  collate(file_default()) %>%
+  pack(output = txt, quiet = TRUE)
+```
+
+The `collate()` function evaluates one or more **file specifications**
+to generate a **file collection**. They fully determine the scope of the files
+to pack here. For details, check `vignette("filespec", package = "pkglite")`.
+
+Check the first lines of the output file:
+
+```{r}
+txt %>%
+  readLines() %>%
+  head(11) %>%
+  cat(sep = "\n")
+```
+
+Check the number of lines the output file:
+
+```{r}
+txt %>%
+  readLines() %>%
+  length()
+```
+
+## Unpack one package
+
+To unpack (restore) the file structures from the text file, use `unpack()`:
+
+```{r}
+out <- file.path(tempdir(), "onepkg")
+txt %>% unpack(output = out, quiet = TRUE)
+```
+
+This will create a directory named after the R package under the output directory:
+
+```{r}
+out %>%
+  file.path("pkg1") %>%
+  list.files()
+```
+
+To install the packages after unpacking them, use `unpack(..., install = TRUE)`.
+
+## Pack multiple packages
+
+`pack()` accepts one or more input directories. Therefore, one can pack
+multiple R packages (file collections) into one file at once:
+
+```{r}
+pkg1 <- system.file("examples/pkg1", package = "pkglite")
+pkg2 <- system.file("examples/pkg2", package = "pkglite")
+
+fc1 <- pkg1 %>% collate(file_default())
+fc2 <- pkg2 %>% collate(file_default())
+
+pack(fc1, fc2, output = txt, quiet = TRUE)
+```
+
+Since the two example packages have almost identical content,
+the number of lines in the text file is doubled here
+(three header lines excluded):
+
+```{r}
+txt %>%
+  readLines() %>%
+  length()
+```
+
+## Unpack multiple packages
+
+Use the same call to unpack (and install) multiple R packages from the text file:
+
+```{r}
+out <- file.path(tempdir(), "twopkgs")
+txt %>% unpack(output = out, quiet = TRUE)
+```
+
+```{r}
+out %>%
+  file.path("pkg1") %>%
+  list.files()
+out %>%
+  file.path("pkg2") %>%
+  list.files()
+```
+
+The file format specification for `pkglite.txt` is described in
+`vignette("format", package = "pkglite")`.
+
+# Helper functions
+
+Verify if the text file contains only ASCII characters:
+
+```{r}
+txt %>% verify_ascii()
+```
+
+Remove lines of file content from the text file:
+
+```{r}
+txt %>% remove_content(c("## New Features", "## Improvements"), quiet = TRUE)
+```
+
+```{r}
+txt %>%
+  readLines() %>%
+  length()
+```

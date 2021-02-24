@@ -1,0 +1,48 @@
+destination: docs
+template:
+  package: pkglite
+reference:
+  - title: "Pack packages"
+    desc: "Pack package(s) into a text file"
+    contents:
+      - pack
+  - title: "Unpack packages"
+    desc: "Unpack package(s) from a text file"
+    contents:
+      - unpack
+  - title: "File specifications"
+    desc: "Specifies the files to include in a package"
+    contents:
+      - file_spec
+      - file_auto
+      - file_default
+      - file_ectd
+      - file_root_core
+      - file_root_all
+      - file_r
+      - file_man
+      - file_src
+      - file_vignettes
+      - file_data
+      - is_file_spec
+      - print.file_spec
+  - title: "File collections"
+    desc: "Evaluated file specifications"
+    contents:
+      - collate
+      - sanitize_file_collection
+      - is_file_collection
+      - print.file_collection
+  - title: "Utilities"
+    desc: "Utility functions"
+    contents:
+      - verify_ascii
+      - remove_content
+  - title: "Dictionaries"
+    desc: "Standard file extensions and patterns"
+    contents:
+      - ext_text
+      - ext_binary
+      - pattern_file_root_core
+      - pattern_file_root_all
+      - pattern_file_sanitize

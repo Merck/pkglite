@@ -1,0 +1,22 @@
+---
+title: "Example title"
+date: "`r Sys.Date()`"
+bibliography: pkg1.bib
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_float: false
+    toc_depth: 4
+    number_sections: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Example title}
+---
+
+# Introduction
+
+This is an example vignette.
+
+Citation item: @r.
+
+# References

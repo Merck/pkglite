@@ -1,0 +1,31 @@
+Package: pkglite
+Title: Compact Package Representations
+Version: 0.1.0
+Authors@R: c(
+    person("Nan", "Xiao", email = "nan.xiao1@merck.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0250-5673")),
+    person("Yilong", "Zhang", email = "yilong.zhang@merck.com", role = c("aut")),
+    person("Keaven", "Anderson", email = "keaven_anderson@merck.com", role = c("aut")),
+    person("Amin", "Shirazi", email = "amin.shirazi@merck.com", role = c("ctb")),
+    person("Jeff", "Cheng", email = "jeff.cheng@merck.com", role = c("ctb")),
+    person("Merck Sharp & Dohme Corp", role = "cph")
+    )
+Description: A tool, grammar, and standard to represent and exchange
+    R package source code as text files. Converts one or more source
+    packages to a text file and restores the package structures from the file.
+License: GPL-3
+URL: https://merck.github.io/pkglite/, https://github.com/Merck/pkglite
+BugReports: https://github.com/Merck/pkglite/issues
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+Depends: R (>= 3.5.0)
+Imports:
+    cli,
+    magrittr,
+    remotes
+Suggests:
+    knitr,
+    rmarkdown
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

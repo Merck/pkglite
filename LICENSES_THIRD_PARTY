@@ -1,0 +1,19 @@
+pkglite uses third-party R packages which may be distributed under different
+licenses. We have listed all of these third party packages and their licenses
+below. However, the most up-to-date information can be found via inspecting
+the Imports field in the DESCRIPTION file.
+
+You must agree to the terms of these licenses, in addition to the pkglite
+source code license, in order to use this software.
+
+--------------------------------------------------
+Third party R packages listed by License type
+[Format: Name - URL]
+--------------------------------------------------
+
+MIT / X11 License (or adaptations) (https://www.opensource.org/licenses/MIT)
+  * cli - https://cli.r-lib.org/LICENSE.html
+  * magrittr - https://magrittr.tidyverse.org/LICENSE.html
+
+GPL-2 | GPL-3 [expanded from: GPL (>=2)]
+	* remotes - https://remotes.r-lib.org/
