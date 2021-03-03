@@ -1,9 +1,9 @@
 # pkglite <img src="man/figures/logo.png" alt="" align="right" height="139" />
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/pkglite)](https://CRAN.R-project.org/package=pkglite)
-[![CRAN
-Downloads](https://cranlogs.r-pkg.org/badges/pkglite)](https://cran.r-project.org/package=pkglite)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/Merck/pkglite/workflows/R-CMD-check/badge.svg)](https://github.com/Merck/pkglite/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/pkglite)](https://CRAN.R-project.org/package=pkglite)
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/pkglite)](https://CRAN.R-project.org/package=pkglite)
 <!-- badges: end -->
 
 A tool, grammar, and standard to represent and exchange
