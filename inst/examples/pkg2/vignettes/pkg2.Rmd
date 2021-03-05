@@ -1,7 +1,7 @@
 ---
 title: "Example title"
 date: "`r Sys.Date()`"
-bibliography: pkg2.bib
+bibliography: example.bib
 output:
   rmarkdown::html_vignette:
     toc: true
