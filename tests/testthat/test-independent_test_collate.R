@@ -138,7 +138,7 @@ testthat::test_that("print returns a data frame as expected", {
     collate(file_vignettes()) %>%
     print() %>%
     `[[`("df")
-  files <- pkg %>% find_files(dir = "vignettes/", pattern = "*")
+  files <- pkg %>% find_files(dir = "vignettes", pattern = "*")
   expected <- data.frame(
     "path_rel" = files$files,
     "format" = rep("text", length(files$files)))
