@@ -135,12 +135,14 @@ testthat::test_that("print returns a data frame as expected", {
   pkg <- "pkg1"
   actual <- pkg %>%
     find_package() %>%
-    collate(file_vignettes())
+    collate(file_vignettes()) %>%
+    print() %>%
+    `[[`("df")
   files <- pkg %>% find_files(dir = "vignettes/", pattern = "*")
   expected <- data.frame(
     "path_rel" = files$files,
     "format" = rep("text", length(files$files)))
-  testthat::expect_identical(print(actual$df[, -1]), expected)
+  testthat::expect_identical(actual[, -1], expected)
 })
 
 testthat::test_that("get_pkg_name returns the package name correctly", {
