@@ -987,13 +987,26 @@ Content:
   c2932000024e09fc3fe62a6059d185ef460000000049454e44ae426082
 
 Package: pkg1
+File: vignettes/example.bib
+Format: text
+Content:
+  @Manual{r,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2020},
+    url = {https://www.R-project.org/},
+  }
+
+Package: pkg1
 File: vignettes/pkg1.Rmd
 Format: text
 Content:
   ---
   title: "Example title"
   date: "`r Sys.Date()`"
-  bibliography: pkg1.bib
+  bibliography: example.bib
   output:
     rmarkdown::html_vignette:
       toc: true
@@ -1012,19 +1025,6 @@ Content:
   Citation item: @r.
   
   # References
-
-Package: pkg1
-File: vignettes/pkg1.bib
-Format: text
-Content:
-  @Manual{r,
-    title = {R: A Language and Environment for Statistical Computing},
-    author = {{R Core Team}},
-    organization = {R Foundation for Statistical Computing},
-    address = {Vienna, Austria},
-    year = {2020},
-    url = {https://www.R-project.org/},
-  }
 
 Package: pkg1
 File: data/dataset.rda

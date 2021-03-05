@@ -4,9 +4,8 @@ fc1 <- pkg1 %>% collate(file_default())
 fc2 <- pkg2 %>% collate(file_default())
 txt <- tempfile(fileext = ".txt")
 
-save_txt <- function(code) {
-  path <- tempfile(fileext = ".txt")
-  writeLines(code, paste0(path))
+save_txt <- function(code, path = tempfile(fileext = ".txt")) {
+  writeLines(code, con = path)
   path
 }
 
@@ -28,7 +27,6 @@ testthat::test_that("fc_to_text returns the strings correctly", {
 })
 
 testthat::test_that("file_to_vec returns the strings correctly", {
-  quiet <- TRUE
   local_edition(3)
   fc <- list(fc1, fc2)
   df <- fc[[1]][["df"]]
@@ -36,7 +34,6 @@ testthat::test_that("file_to_vec returns the strings correctly", {
   nfiles <- nrow(df)
   res <- lapply(1:nfiles, function(i) {
     path_rel <- df[i, "path_rel"]
-    if (quiet) cli_text("Reading {.field {path_rel}}")
     file_to_vec(df[i, "path_abs"], format = df[i, "format"], pkg_name = pkg_name, path_rel = path_rel)
   }) %>% unlist()
 
