@@ -13,7 +13,7 @@ find_files <- function(pkg, dir, pattern) {
       full.names = TRUE
     ) %>%
     gsub(pattern = paste0(".*", pkg, "/{1}"), replacement = "") %>%
-    as.data.frame()
+    as.data.frame(stringsAsFactors = FALSE)
   names(d)[1] <- "files"
   d
 }
@@ -141,7 +141,9 @@ testthat::test_that("print returns a data frame as expected", {
   files <- pkg %>% find_files(dir = "vignettes", pattern = "*")
   expected <- data.frame(
     "path_rel" = files$files,
-    "format" = rep("text", length(files$files)))
+    "format" = rep("text", length(files$files)),
+    stringsAsFactors = FALSE
+  )
   testthat::expect_identical(actual[, -1], expected)
 })
 
@@ -155,7 +157,8 @@ testthat::test_that("create_fc_df returns the data frame correctly", {
   expected <- data.frame(
     "path_abs" = rep(NA, n_row),
     "path_rel" = rep(NA, n_row),
-    "format" = rep(NA, n_row)
+    "format" = rep(NA, n_row),
+    stringsAsFactors = FALSE
   )
   testthat::expect_identical(expected, create_fc_df(n_row))
 })

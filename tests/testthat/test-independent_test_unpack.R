@@ -13,7 +13,7 @@ find_files <- function(pkg, dir, pattern) {
       full.names = TRUE
     ) %>%
     gsub(pattern = paste0(".*", pkg, "/{1}"), replacement = "") %>%
-    as.data.frame()
+    as.data.frame(stringsAsFactors = FALSE)
   names(d)[1] <- "files"
   d
 }
