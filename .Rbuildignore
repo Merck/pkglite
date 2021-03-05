@@ -3,7 +3,6 @@
 ^\.gitattributes$
 ^_pkgdown\.yml$
 ^pkgdown$
-^docs$
 ^data-raw$
 ^LICENSE$
 ^LICENSES_THIRD_PARTY$
