@@ -67,8 +67,10 @@ Content:
   #'
   #' @export hello_world
   #'
+  #' @return No return value, called for side effects.
+  #'
   #' @examples
-  #' NULL
+  #' hello_world()
   hello_world <- function() {
     print("Hello, world!")
   }
@@ -158,11 +160,14 @@ Content:
   \usage{
   hello_world()
   }
+  \value{
+  No return value, called for side effects.
+  }
   \description{
   Hello world function
   }
   \examples{
-  NULL
+  hello_world()
   }
 
 Package: pkg1
@@ -1140,8 +1145,10 @@ Content:
   #'
   #' @export hello_world
   #'
+  #' @return No return value, called for side effects.
+  #'
   #' @examples
-  #' NULL
+  #' hello_world()
   hello_world <- function() {
     print("Hello, world!")
   }
@@ -1231,11 +1238,14 @@ Content:
   \usage{
   hello_world()
   }
+  \value{
+  No return value, called for side effects.
+  }
   \description{
   Hello world function
   }
   \examples{
-  NULL
+  hello_world()
   }
 
 Package: pkg2
