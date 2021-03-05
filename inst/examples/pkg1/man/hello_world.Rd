@@ -6,9 +6,12 @@
 \usage{
 hello_world()
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 Hello world function
 }
 \examples{
-NULL
+hello_world()
 }

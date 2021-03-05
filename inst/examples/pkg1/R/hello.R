@@ -2,8 +2,10 @@
 #'
 #' @export hello_world
 #'
+#' @return No return value, called for side effects.
+#'
 #' @examples
-#' NULL
+#' hello_world()
 hello_world <- function() {
   print("Hello, world!")
 }

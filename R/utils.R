@@ -123,6 +123,9 @@ remove_content <- function(input, x, quiet = FALSE) {
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
+#' @return The evaluation result of `rhs(lhs)`,
+#' if `rhs` is a function and `lhs` is an object.
+#' See [magrittr::%>%] for more details.
 #' @export
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs

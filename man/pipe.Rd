@@ -6,6 +6,11 @@
 \usage{
 lhs \%>\% rhs
 }
+\value{
+The evaluation result of \code{rhs(lhs)},
+if \code{rhs} is a function and \code{lhs} is an object.
+See \link[magrittr:pipe]{magrittr::\%>\%} for more details.
+}
 \description{
 See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 }
