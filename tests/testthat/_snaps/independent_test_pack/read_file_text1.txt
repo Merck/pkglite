@@ -1,0 +1,16 @@
+Package: pkg1
+Type: Package
+Title: Example Package One
+Version: 0.1.0
+Authors@R: c(person("Author", "Name", email = "example@example.com", role = c("aut", "cre")))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+Depends: R (>= 3.5.0)
+Suggests:
+    knitr,
+    rmarkdown
+RoxygenNote: 7.1.1
