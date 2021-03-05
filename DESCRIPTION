@@ -27,6 +27,7 @@ Imports:
 Suggests:
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    covr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
