@@ -162,3 +162,22 @@ testthat::test_that("create_fc_df returns the data frame correctly", {
   )
   testthat::expect_identical(expected, create_fc_df(n_row))
 })
+
+testthat::test_that('sanitize_file_collection can successfully
+                    remove commonly excluded files and directories from a file collection', {
+  actual = system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_default()) %>%
+    sanitize_file_collection()
+
+  res = list.files(system.file("examples/pkg1/", package = "pkglite"), full.names = T,
+                   ignore.case = TRUE, recursive = T) %>%
+    gsub(pattern = paste0(".*", 'pkg1', "/{1}"), replacement = "") %>%
+    as.data.frame(stringsAsFactors = FALSE)
+  names(res)[1] <- "files"
+  expected = res %>% dplyr::filter(files != "inst/extdata/dataset.tsv")
+
+  testthat::expect_equal(actual$df$path_rel[! actual$df$path_rel %in% expected$files] %>% length(), 0)
+
+
+
+})
