@@ -162,3 +162,26 @@ testthat::test_that("create_fc_df returns the data frame correctly", {
   )
   testthat::expect_identical(expected, create_fc_df(n_row))
 })
+
+testthat::test_that("sanitize_file_collection can successfully
+                    remove commonly excluded files and directories from a file collection", {
+  actual = system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_default()) %>%
+    sanitize_file_collection()
+
+  path = paste(gsub(pattern = "(pkg1).*", "\\1", actual$df$path_abs[1]), ".DS_Store", sep = '/')
+  #  manually add some rows with some of the special file name
+  temp = rbind(actual$df,
+               c(path, "test.DS_Store", "text"),
+               c(path, "test.git", "binary"),
+               c(path, "test.svn", "svn"),
+               c(path, "test.hg", "hg"),
+               c(path, "test.Rproj", " "),
+               c(path, "test.Rhistory", " "),
+               c(path, "test.RData", "binary"),
+               c(path, "test.Ruserdata", "binary"),
+               c(path, "test.user", "binary"))
+  test <- actual
+  test$df <- temp
+  testthat::expect_equal(sanitize_file_collection(actual), sanitize_file_collection(test))
+})
