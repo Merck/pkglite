@@ -17,7 +17,6 @@ License: GPL-3
 URL: https://merck.github.io/pkglite/, https://github.com/Merck/pkglite
 BugReports: https://github.com/Merck/pkglite/issues
 Encoding: UTF-8
-LazyData: true
 VignetteBuilder: knitr
 Depends: R (>= 3.5.0)
 Imports:
