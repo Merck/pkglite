@@ -101,7 +101,7 @@ remove_content <- function(input, x, quiet = FALSE) {
   k <- length(idx_match)
   if (k > 0L) {
     if (!quiet) {
-      lapply(1:k, function(i) {
+      lapply(seq_len(k), function(i) {
         idx <- idx_content[idx_match][i]
         cli_text(left = "Removing line {.field {idx}}")
       })

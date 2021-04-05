@@ -57,7 +57,7 @@ collate <- function(pkg = ".", ...) {
   lst_spec <- flatten_file_spec(lst_spec)
   k <- length(lst_spec)
   if (k == 0L) stop("Please provide at least one file specification")
-  lst_collection <- lapply(1:k, function(i) fs_to_df(path, lst_spec[[i]]))
+  lst_collection <- lapply(seq_len(k), function(i) fs_to_df(path, lst_spec[[i]]))
   df <- do.call(rbind, lst_collection)
   # remove duplicates
   df <- unique(df)

@@ -94,7 +94,7 @@ unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
 
   # write all files in all packages ----
   if (!quiet) cli_text("Writing to: {.file {output}}")
-  lapply(1:nfiles, function(i) {
+  lapply(seq_len(nfiles), function(i) {
     path_rel_cli <- path_rel[i]
     if (!quiet) cli_text(left = "Writing {.field {path_rel_cli}}")
     write_pkg(path = path_abs[i], format = format[i], content = content[[i]])
@@ -105,7 +105,7 @@ unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
   path_pkg <- file.path(paste0(output, "/", pkgs, "/"))
   npkgs <- length(pkgs)
   if (install) {
-    lapply(1:npkgs, function(i) {
+    lapply(seq_len(npkgs), function(i) {
       pkg <- pkgs[i]
       if (!quiet) cli_rule(left = "Installing package: {.pkg {pkg}}")
       remotes::install_local(path_pkg[i], quiet = quiet, ...)
@@ -153,7 +153,7 @@ read_pkglite <- function(path) {
   lst[["content"]] <- extract_value_multi(x, idx_content_start, idx_content_end)
 
   # convert string to writable raw vectors
-  for (i in 1L:nblocks) {
+  for (i in seq_len(nblocks)) {
     if (lst[["format"]][i] == "binary") {
       lst[["content"]][[i]] <- vec_to_raw(lst[["content"]][[i]])
     }
@@ -225,7 +225,7 @@ extract_value <- function(x) {
 extract_value_multi <- function(x, start, end) {
   if (length(start) != length(end)) stop("start and end must have equal length")
   k <- length(start)
-  lapply(1:k, function(i) substring(x[start[i]:end[i]], 3))
+  lapply(seq_len(k), function(i) substring(x[start[i]:end[i]], 3))
 }
 
 #' Convert hex character string to a raw vector

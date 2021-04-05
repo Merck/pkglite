@@ -76,7 +76,7 @@ pack <- function(..., output, quiet = FALSE) {
 
   # read files in each package ----
   if (!quiet) cli_h1("Packing into pkglite file")
-  lst_text <- lapply(1:npkgs, function(i) {
+  lst_text <- lapply(seq_len(npkgs), function(i) {
     pkg_name <- pkg_names[i]
     if (!quiet) cli_rule(left = "Reading package: {.pkg {pkg_name}}")
     fc_to_text(lst_fc[[i]], quiet = quiet)
@@ -133,7 +133,7 @@ fc_to_text <- function(fc, quiet = FALSE) {
   pkg_name <- fc[["pkg_name"]]
   df <- fc[["df"]]
   nfiles <- nrow(df)
-  lapply(1:nfiles, function(i) {
+  lapply(seq_len(nfiles), function(i) {
     path_rel <- df[i, "path_rel"]
     if (!quiet) cli_text("Reading {.field {path_rel}}")
     file_to_vec(df[i, "path_abs"], format = df[i, "format"], pkg_name = pkg_name, path_rel = path_rel)
@@ -282,9 +282,9 @@ seg_char <- function(x, nmax) {
   pos <- seq(from = 1L, to = nchars, by = nmax)
   short <- nchars <= nmax
   nlines <- if (short) 1L else length(pos)
-  pos_start <- if (short) 1L else pos[1L:nlines]
+  pos_start <- if (short) 1L else pos[seq_len(nlines)]
   pos_end <- if (short) nchars else c(pos[2L:nlines] - 1L, nchars)
-  lapply(1:nlines, function(i) x[pos_start[i]:pos_end[i]])
+  lapply(seq_len(nlines), function(i) x[pos_start[i]:pos_end[i]])
 }
 
 #' Add indentation to a file content vector
