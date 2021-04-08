@@ -34,7 +34,8 @@ test_that("Test ext_binary() generate the right string list", {
       "ico", "webp", "eps", "pdf"
     ),
     "src" = c("o", "so"),
-    "mso" = c("docx", "xlsx", "pptx", "doc", "xls", "ppt")
+    "mso" = c("docx", "xlsx", "pptx", "doc", "xls", "ppt"),
+    "sas" = c("sas7bdat", "sas7bcat", "xpt", "xpt5", "xpt8")
   )
 
   ls_target <- str_ls

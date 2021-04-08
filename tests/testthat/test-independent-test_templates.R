@@ -252,7 +252,7 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -395,7 +395,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -594,7 +594,7 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "inst/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
