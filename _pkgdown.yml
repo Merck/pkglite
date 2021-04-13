@@ -24,6 +24,7 @@ reference:
       - file_src
       - file_vignettes
       - file_data
+      - file_tests
       - is_file_spec
       - print.file_spec
   - title: "File collections"
