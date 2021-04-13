@@ -9,6 +9,7 @@
 \alias{file_src}
 \alias{file_vignettes}
 \alias{file_data}
+\alias{file_tests}
 \title{File specification templates}
 \usage{
 file_root_core()
@@ -24,6 +25,8 @@ file_src()
 file_vignettes()
 
 file_data()
+
+file_tests()
 }
 \value{
 A file specification or a list of file specifications.
@@ -37,6 +40,7 @@ A file specification or a list of file specifications.
 \item \code{file_src()} - files under \verb{src/}
 \item \code{file_vignettes()} - files under \verb{vignettes/}
 \item \code{file_data()} - files under \verb{data/}
+\item \code{file_tests()} - files under \verb{tests/}
 }
 }
 \section{Specification}{
