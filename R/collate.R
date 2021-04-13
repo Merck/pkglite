@@ -98,7 +98,7 @@ fs_to_df <- function(pkg_path, file_spec) {
   }
 
   full_path <- normalizePath(full_path, winslash = "/")
-  file_path_abs <- list.files(
+  file_path_abs <- list_files(
     path = full_path, pattern = file_spec$pattern, full.names = TRUE,
     recursive = file_spec$recursive, ignore.case = file_spec$ignore_case,
     all.files = file_spec$all_files, include.dirs = FALSE, no.. = TRUE
@@ -295,4 +295,25 @@ get_pkg_name <- function(path) {
   desc_file <- normalizePath(path, winslash = "/")
   pkg_name <- unname(read.dcf(desc_file)[, "Package"])
   pkg_name
+}
+
+#' List the files in a directory without returning any subdirectories
+#'
+#' @param ... Arguments passed to [list.files()].
+#'
+#' @section Specification:
+#' \if{latex}{
+#'   \itemize{
+#'     \item List files using \code{list.files()}.
+#'     \item Test if the results are files using \code{file_test()}.
+#'     \item Keep the files only.
+#'   }
+#' }
+#' \if{html}{The contents of this section are shown in PDF user manual only.}
+#'
+#' @importFrom utils file_test
+#'
+#' @noRd
+list_files <- function(...) {
+  Filter(function(x) file_test("-f", x), list.files(...))
 }
