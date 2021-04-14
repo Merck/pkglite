@@ -38,7 +38,7 @@ fs_unlist <- function(fs) {
       }
       else if (class(x) == "list") {
         ls_tmp <- fs_unlist(x)
-        for (j in seq_len(ls_tmp)) {
+        for (j in seq_len(length(ls_tmp))) {
           ls_cnt <- ls_cnt + 1
           ls[[ls_cnt]] <- ls_tmp[[j]]
         }
