@@ -125,7 +125,8 @@ testthat::test_that("fs_to_df evaluates a file spec and return the data frame co
 testthat::test_that("is_file_collection detects whether an object is of class file collection", {
   pkg <- "pkg1"
   testthat::expect_false(
-    pkg %>% find_package() %>%
+    pkg %>%
+      find_package() %>%
       fs_to_df(file_spec = file_src()) %>%
       is_file_collection()
   )
@@ -165,13 +166,13 @@ testthat::test_that("create_fc_df returns the data frame correctly", {
 
 testthat::test_that("sanitize_file_collection can successfully
                     remove commonly excluded files and directories from a file collection", {
-  actual = system.file("examples/pkg1/", package = "pkglite") %>%
+  actual <- system.file("examples/pkg1/", package = "pkglite") %>%
     collate(file_default()) %>%
     sanitize_file_collection()
 
-  path = paste(gsub(pattern = "(pkg1).*", "\\1", actual$df$path_abs[1]), ".DS_Store", sep = '/')
+  path <- paste(gsub(pattern = "(pkg1).*", "\\1", actual$df$path_abs[1]), ".DS_Store", sep = "/")
   #  manually add some rows with some of the special file name
-  temp = rbind(actual$df,
+  temp <- rbind(actual$df,
                c(path, "test.DS_Store", "text"),
                c(path, "test.git", "binary"),
                c(path, "test.svn", "svn"),

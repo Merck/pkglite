@@ -93,7 +93,6 @@ verify_ascii <- function(input, quiet = FALSE) {
 remove_content <- function(input, x, quiet = FALSE) {
   if (missing(input)) stop("Please provide an input file")
   y <- readLines(input)
-  nlines <- length(y)
 
   idx_content <- which(substr(y, 1L, 2L) == "  ")
   y_content <- substring(y[idx_content], 3L)

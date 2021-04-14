@@ -30,8 +30,7 @@ fs_unlist <- function(fs) {
   ls_cnt <- 0
 
   if (fs_len) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       x <- fs[[i]]
       if (class(x) == "file_spec") {
         ls_cnt <- ls_cnt + 1
@@ -39,8 +38,7 @@ fs_unlist <- function(fs) {
       }
       else if (class(x) == "list") {
         ls_tmp <- fs_unlist(x)
-        for (j in 1:length(ls_tmp))
-        {
+        for (j in seq_len(ls_tmp)) {
           ls_cnt <- ls_cnt + 1
           ls[[ls_cnt]] <- ls_tmp[[j]]
         }
@@ -99,8 +97,7 @@ testthat::test_that("file_r() creates the correct 'file_spec' objects", {
   fs_len <- length(fs_source)
 
   if (fs_len == 2) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_source[[i]]
       if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
@@ -145,8 +142,7 @@ testthat::test_that("file_man() creates the correct 'file_spec' objects", {
   fs_len <- length(fs_source)
 
   if (fs_len == 3) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_source[[i]]
       if (!is_spec_rd & is_file_spec_type(
         fs_source = fs,
@@ -233,8 +229,7 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
   fs_len <- length(fs_source)
 
   if (fs_len == 2) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_source[[i]]
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
@@ -287,8 +282,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
   fs_len <- length(fs_ls)
 
   if (fs_len == 10) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_ls[[i]]
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
@@ -450,8 +444,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
   fs_len <- length(fs_ls)
 
   if (fs_len == 8) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_ls[[i]]
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
@@ -575,8 +568,7 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
   fs_len <- length(fs_source)
 
   if (fs_len == 2) {
-    for (i in 1:fs_len)
-    {
+    for (i in seq_len(fs_len)) {
       fs <- fs_source[[i]]
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
