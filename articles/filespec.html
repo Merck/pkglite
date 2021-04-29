@@ -64,6 +64,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/filecollection.html">Curate File Collections</a>
+    </li>
+    <li>
       <a href="../articles/filespec.html">Generate File Specifications</a>
     </li>
     <li>
@@ -123,12 +126,12 @@
 <span class="va">fs</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File specification ──────────────────────────────────────────────────────────</code></pre>
-<pre><code>● Relative path: R/</code></pre>
-<pre><code>● Pattern: '\\.R$'</code></pre>
-<pre><code>● Format: 'text'</code></pre>
-<pre><code>● Recursive: FALSE</code></pre>
-<pre><code>● Ignore case: TRUE</code></pre>
-<pre><code>● All files: FALSE</code></pre>
+<pre><code>• Relative path: 'R/'</code></pre>
+<pre><code>• Pattern: '\\.R$'</code></pre>
+<pre><code>• Format: 'text'</code></pre>
+<pre><code>• Recursive: FALSE</code></pre>
+<pre><code>• Ignore case: TRUE</code></pre>
+<pre><code>• All files: FALSE</code></pre>
 </div>
 <div id="file-collection" class="section level1">
 <h1 class="hasAnchor">
@@ -176,21 +179,8 @@
 2   NAMESPACE   text
 3     NEWS.md   text
 4   README.md   text</code></pre>
-<p>Sometimes, a file collection might contain files or directories that should always be excluded, such as the files defined in <code><a href="../reference/file_name_patterns.html">pattern_file_sanitize()</a></code>. One could use <code><a href="../reference/sanitize_file_collection.html">sanitize_file_collection()</a></code> to remove such items from the file collection:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_root_all</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/sanitize_file_collection.html">sanitize_file_collection</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code></code></pre>
-<pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>
-<pre><code>── Package: pkg1 ───────────────────────────────────────────────────────────────</code></pre>
-<pre><code>     path_rel format
-1 DESCRIPTION   text
-2   NAMESPACE   text
-3     NEWS.md   text
-4   README.md   text</code></pre>
 <p>We can feed one or more file specifications to <code><a href="../reference/collate.html">collate()</a></code>. The union of the matched files will be returned:</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>
@@ -205,7 +195,7 @@
 7  man/pkg1-package.Rd   text
 8 man/figures/logo.png binary</code></pre>
 <p>If file specification did not match any files, an empty file collection is returned:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_src</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>
@@ -213,7 +203,7 @@
 <pre><code>[1] path_rel format  
 &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p>Naturally, this would not add additional files to the collection:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_src</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>
@@ -232,7 +222,7 @@
 <h1 class="hasAnchor">
 <a href="#default-file-specification" class="anchor"></a>Default file specification</h1>
 <p><code><a href="../reference/file_default.html">file_default()</a></code> offers a default combination of the file specification templates.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>
@@ -258,7 +248,7 @@
 <h1 class="hasAnchor">
 <a href="#automatic-file-specification" class="anchor"></a>Automatic file specification</h1>
 <p><code><a href="../reference/file_auto.html">file_auto()</a></code> provides a specification that lists all files (with an extension) under a folder recursively. It also guesses the file format type based on the file extension. This is useful for directories like <code>inst/</code> that do not share a standard structure or filename pattern across packages.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_auto.html">file_auto</a></span><span class="op">(</span><span class="st">"inst/"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code></code></pre>
 <pre><code>── File collection ─────────────────────────────────────────────────────────────</code></pre>

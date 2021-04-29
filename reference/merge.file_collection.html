@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>pkglite: Compact Package Representations — pkglite-package • pkglite</title>
+<title>Merge file collections — merge.file_collection • pkglite</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,11 +46,8 @@
 
 
 
-<meta property="og:title" content="pkglite: Compact Package Representations — pkglite-package" />
-<meta property="og:description" content="
-A tool, grammar, and standard to represent and exchange
-    R package source code as text files. Converts one or more source
-    packages to a text file and restores the package structures from the file." />
+<meta property="og:title" content="Merge file collections — merge.file_collection" />
+<meta property="og:description" content="Merge file collections" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -143,45 +140,62 @@ A tool, grammar, and standard to represent and exchange
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>pkglite: Compact Package Representations</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Merck/pkglite/blob/master/R/pkglite-package.R'><code>R/pkglite-package.R</code></a></small>
-    <div class="hidden name"><code>pkglite-package.Rd</code></div>
+    <h1>Merge file collections</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Merck/pkglite/blob/master/R/collection.R'><code>R/collection.R</code></a></small>
+    <div class="hidden name"><code>merge.file_collection.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><img src='figures/logo.png' align='right' alt='logo' width='120' /></p>
-<p>A tool, grammar, and standard to represent and exchange
-    R package source code as text files. Converts one or more source
-    packages to a text file and restores the package structures from the file.</p>
+    <p>Merge file collections</p>
     </div>
 
+    <pre class="usage"><span class='co'># S3 method for file_collection</span>
+<span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>File collection.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>Another file collection.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional file collections.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://merck.github.io/pkglite/'>https://merck.github.io/pkglite/</a></p></li>
-<li><p><a href='https://github.com/Merck/pkglite'>https://github.com/Merck/pkglite</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/Merck/pkglite/issues'>https://github.com/Merck/pkglite/issues</a></p></li>
-</ul>
+    <p>Merged file collection.</p>
+    <h2 class="hasAnchor" id="specification"><a class="anchor" href="#specification"></a>Specification</h2>
 
-</div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+    
 
-    <p><strong>Maintainer</strong>: Nan Xiao <a href='mailto:nan.xiao1@merck.com'>nan.xiao1@merck.com</a> (<a href='https://orcid.org/0000-0002-0250-5673'>ORCID</a>)</p>
-<p>Authors:</p><ul>
-<li><p>Yilong Zhang <a href='mailto:yilong.zhang@merck.com'>yilong.zhang@merck.com</a></p></li>
-<li><p>Keaven Anderson <a href='mailto:keaven_anderson@merck.com'>keaven_anderson@merck.com</a></p></li>
-</ul>
+<p>The contents of this section are shown in PDF user manual only.</p>
 
-<p>Other contributors:</p><ul>
-<li><p>Amin Shirazi <a href='mailto:amin.shirazi@merck.com'>amin.shirazi@merck.com</a> [contributor]</p></li>
-<li><p>Jeff Cheng <a href='mailto:jeff.cheng@merck.com'>jeff.cheng@merck.com</a> [contributor]</p></li>
-<li><p>Merck Sharp &amp; Dohme Corp [copyright holder]</p></li>
-</ul>
-
-
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>pkg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"examples/pkg1/"</span>, package <span class='op'>=</span> <span class='st'>"pkglite"</span><span class='op'>)</span>
+<span class='va'>fc1</span> <span class='op'>&lt;-</span> <span class='va'>pkg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_spec_templates.html'>file_root_core</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>fc2</span> <span class='op'>&lt;-</span> <span class='va'>pkg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_spec_templates.html'>file_r</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='file_spec_templates.html'>file_man</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>fc1</span>, <span class='va'>fc2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span><span> </span><span style='font-weight: bold;'>File collection</span><span> </span><span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span><span></span></div><div class='output co'>#&gt; <span class='message'>── Package: </span><span style='color: #0000BB;'>pkg1</span><span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                path_rel format
+#&gt; 1           DESCRIPTION   text
+#&gt; 2             NAMESPACE   text
+#&gt; 3               NEWS.md   text
+#&gt; 4             README.md   text
+#&gt; 5              R/data.R   text
+#&gt; 6             R/hello.R   text
+#&gt; 7      R/pkg1-package.R   text
+#&gt; 8         R/sysdata.rda binary
+#&gt; 9        man/dataset.Rd   text
+#&gt; 10   man/hello_world.Rd   text
+#&gt; 11  man/pkg1-package.Rd   text
+#&gt; 12 man/figures/logo.png binary</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

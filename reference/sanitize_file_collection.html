@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sanitize file collection — sanitize_file_collection • pkglite</title>
+<title>Sanitize file collection (deprecated) — sanitize_file_collection • pkglite</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Sanitize file collection — sanitize_file_collection" />
-<meta property="og:description" content="Remove commonly excluded files and directories from a file collection." />
+<meta property="og:title" content="Sanitize file collection (deprecated) — sanitize_file_collection" />
+<meta property="og:description" content="Remove commonly excluded files from a file collection." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -106,6 +106,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/filecollection.html">Curate File Collections</a>
+    </li>
+    <li>
       <a href="../articles/filespec.html">Generate File Specifications</a>
     </li>
     <li>
@@ -137,13 +140,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sanitize file collection</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Merck/pkglite/blob/master/R/collate.R'><code>R/collate.R</code></a></small>
+    <h1>Sanitize file collection (deprecated)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Merck/pkglite/blob/master/R/collection.R'><code>R/collection.R</code></a></small>
     <div class="hidden name"><code>sanitize_file_collection.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Remove commonly excluded files and directories from a file collection.</p>
+    <p>Remove commonly excluded files from a file collection.</p>
     </div>
 
     <pre class="usage"><span class='fu'>sanitize_file_collection</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
@@ -153,13 +156,13 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a file collection object</p></td>
+      <td><p>File collection.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The sanitized file collection object.</p>
+    <p>Sanitized file collection.</p>
     <h2 class="hasAnchor" id="specification"><a class="anchor" href="#specification"></a>Specification</h2>
 
     
@@ -169,7 +172,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"examples/pkg1/"</span>, package <span class='op'>=</span> <span class='st'>"pkglite"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_default.html'>file_default</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>sanitize_file_collection</span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'><a href='sanitize.html'>sanitize</a></span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span><span> </span><span style='font-weight: bold;'>File collection</span><span> </span><span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span><span></span></div><div class='output co'>#&gt; <span class='message'>── Package: </span><span style='color: #0000BB;'>pkg1</span><span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                 path_rel format
 #&gt; 1            DESCRIPTION   text
 #&gt; 2              NAMESPACE   text
