@@ -12,7 +12,8 @@ R package source code as text files. Converts one or more source
 packages to a text file and restores the package structures from the file.
 
 - To get started, see `vignette("pkglite")`.
-- To create file specifications, see `vignette("filespec")`.
+- To generate file specifications, see `vignette("filespec")`.
+- To curate file collections, see `vignette("filecollection")`.
 - The text file format is described in `vignette("format")`.
 
 ## Installation

@@ -78,17 +78,6 @@ To include all files under the package root, use
 pkg %>% collate(file_root_all())
 ```
 
-Sometimes, a file collection might contain files or directories that should
-always be excluded, such as the files defined in `pattern_file_sanitize()`.
-One could use `sanitize_file_collection()` to remove such items from the
-file collection:
-
-```{r}
-pkg %>%
-  collate(file_root_all()) %>%
-  sanitize_file_collection()
-```
-
 We can feed one or more file specifications to `collate()`.
 The union of the matched files will be returned:
 
