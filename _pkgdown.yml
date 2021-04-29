@@ -31,9 +31,11 @@ reference:
     desc: "Evaluated file specifications"
     contents:
       - collate
-      - sanitize_file_collection
       - is_file_collection
       - print.file_collection
+      - merge.file_collection
+      - prune.file_collection
+      - sanitize.file_collection
   - title: "Utilities"
     desc: "Utility functions"
     contents:
@@ -47,3 +49,7 @@ reference:
       - pattern_file_root_core
       - pattern_file_root_all
       - pattern_file_sanitize
+  - title: "Deprecated"
+    desc: "Deprecated functions that will be removed"
+    contents:
+      - sanitize_file_collection
