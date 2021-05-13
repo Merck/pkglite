@@ -313,6 +313,17 @@ a.sourceLine:hover {
   /*change color of links in drop down here*/
 }
 
+/* small screen expanded dropdown (vignettes) link color */
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
+    color: #fff;
+  }
+}
+
 .nav>li>a:hover, .nav>li>a:focus {
   text-decoration: none;
   background-color: silver;
