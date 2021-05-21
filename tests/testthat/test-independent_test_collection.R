@@ -45,39 +45,95 @@ testthat::test_that("print returns a data frame as expected", {
 })
 
 testthat::test_that("merge can merge two empty file collections and return an empty file collection", {
-  TRUE
+  fc1<- new_file_collection('pkg1', df = data.frame())
+  pkg <- system.file("examples/pkg1/", package = "pkglite")
+  fc2 <- pkg %>% collate(file_root_core())
+  fc2$df <- data.frame()
+  testthat::expect_true(merge.file_collection(fc1, fc2) %>% is_file_collection())
 })
 
 testthat::test_that("merge returns error when some inputs are not file collection objects", {
-  TRUE
+  pkg <- system.file("examples/pkg1/", package = "pkglite")
+  fc1 <- pkg %>% collate(file_root_core())
+  fc2 <- c("apple", "oranges")
+  testthat::expect_error(merge.file_collection(fc1, fc2))
 })
 
 testthat::test_that("merge returns error when the input file collections are for different packages", {
-  TRUE
+  pkg1 <- system.file("examples/pkg1/", package = "pkglite")
+  fc1 <- pkg1 %>% collate(file_root_core())
+  pkg2 <- system.file("examples/pkg2/", package = "pkglite")
+  fc2 <- pkg2 %>% collate(file_root_core())
+  testthat::expect_error(merge.file_collection(fc1, fc2))
+
 })
 
-testthat::test_that("merge returns a file collection with the correct number of files when the file collections contain non-duplicated relative paths", {
-  TRUE
+testthat::test_that("merge returns a file collection with the correct number of files
+                    when the file collections contain non-duplicated relative paths", {
+  pkg <- system.file("examples/pkg1/", package = "pkglite")
+  fc1 <- pkg %>% collate(file_r())
+  fc2 <- pkg %>% collate(file_man())
+  merged.fc <- merge.file_collection(fc1, fc2)
+  testthat::expect_equal(dim(merged.fc$df)[1], dim(fc1$df)[1] + dim(fc2$df)[1])
 })
 
-testthat::test_that("merge returns a file collection with the correct number of files when the file collections contain duplicated relative paths", {
-  TRUE
+testthat::test_that("merge returns a file collection with the correct number
+                    of files when the file collections contain duplicated relative paths", {
+  pkg <- system.file("examples/pkg1/", package = "pkglite")
+  fc1 <- pkg %>% collate(file_root_core())
+  fc2 <- pkg %>% collate(file_r(), file_root_core())
+  x <- union(fc1$df$path_rel, fc2$df$path_rel)
+  merged.fc <- merge.file_collection(fc1, fc2)
+  testthat::expect_equal(dim(merged.fc$df)[1], length(x))
 })
 
 testthat::test_that("prune returns the same file collection when no files match the provided path", {
-  TRUE
+  fc <- system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_r())
+  testthat::expect_warning(fc %>% prune(c("NEWS.md", "man/figures/logo.png")))
+
+  oldw <- getOption("warn")
+  options(warn = -1)
+  fc_new <- fc %>% prune(path = "NEWS.md")
+  options(warn = oldw)
+
+  testthat::expect_equal(fc, fc_new)
 })
 
-testthat::test_that("prune returns a file collection with the correct number of files when some files match the provided path", {
-  TRUE
+testthat::test_that("prune returns a file collection with the correct number of
+                    files when some files match the provided path", {
+  fc <- system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_default())
+
+  oldw <- getOption("warn")
+  options(warn = -1)
+  fc_pruned <- fc %>% prune(c("NEWS.md", "man/figures/logo.png", "README.rmd"))
+  options(warn = oldw)
+
+  x <- intersect(fc$df$path_rel, c("NEWS.md", "man/figures/logo.png", "README.rmd"))
+  testthat::expect_equal(dim(fc$df)[1] - length(x), dim(fc_pruned$df)[1])
+
 })
 
 testthat::test_that("prune returns an empty file collection object when all files are removed", {
-  TRUE
+  fc <- system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_root_core())
+  fc_pruned <- fc %>% prune(c("DESCRIPTION", "NAMESPACE", "NEWS.md", "README.md"))
+  testthat::expect_equal(dim(fc_pruned$df)[1], 0)
 })
 
-testthat::test_that("prune returns a file collection with the correct number of rows with a warning when the provided path can be partially matched", {
-  TRUE
+testthat::test_that("prune returns a file collection with the correct number of rows with
+                    a warning when the provided path can be partially matched", {
+  testthat::expect_warning(system.file("examples/pkg1/", package = "pkglite") %>%
+                             collate(file_default()) %>%
+                             prune(path = c("NEWS.md", "man/figure/logo.png")))
+  fc <- system.file("examples/pkg1/", package = "pkglite") %>%
+    collate(file_default())
+  oldw <- getOption("warn")
+  options(warn = -1)
+  fc_pruned <- fc %>% prune(c("NEWS.md", "man/figure/logo.png", "README.rmd"))
+  options(warn = oldw)
+  testthat::expect_equal(dim(fc_pruned$df)[1], 14)
 })
 
 testthat::test_that("sanitize can successfully remove commonly excluded files and directories from a file collection", {
