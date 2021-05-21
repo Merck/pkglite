@@ -16,9 +16,9 @@ vignette: >
 knitr::opts_chunk$set(comment = "")
 ```
 
-In this vignette, we discuss how to write file specifications and use them
-to create a file collection. They help define the file packing scope in the
-source R package.
+File specifications define the file packing scope in the source R package.
+We will discuss how to write file specifications and use them to create
+a file collection.
 
 ```{r}
 library("pkglite")
