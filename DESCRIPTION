@@ -1,6 +1,6 @@
 Package: pkglite
 Title: Compact Package Representations
-Version: 0.1.1.9000
+Version: 0.2.0
 Authors@R: c(
     person("Nan", "Xiao", email = "nan.xiao1@merck.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0250-5673")),
