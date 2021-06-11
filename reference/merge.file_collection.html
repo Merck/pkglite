@@ -45,6 +45,8 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Merge file collections — merge.file_collection" />
 <meta property="og:description" content="Merge file collections" />
@@ -183,7 +185,7 @@
 <span class='va'>fc1</span> <span class='op'>&lt;-</span> <span class='va'>pkg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_spec_templates.html'>file_root_core</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>fc2</span> <span class='op'>&lt;-</span> <span class='va'>pkg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_spec_templates.html'>file_r</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='file_spec_templates.html'>file_man</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>fc1</span>, <span class='va'>fc2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span><span> </span><span style='font-weight: bold;'>File collection</span><span> </span><span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span><span></span></div><div class='output co'>#&gt; <span class='message'>── Package: </span><span style='color: #0000BB;'>pkg1</span><span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                path_rel format
+</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>File collection</span> <span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span></span></div><div class='output co'>#&gt; <span class='message'>── Package: <span style='color: #0000BB;'>pkg1</span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                path_rel format
 #&gt; 1           DESCRIPTION   text
 #&gt; 2             NAMESPACE   text
 #&gt; 3               NEWS.md   text
@@ -195,7 +197,7 @@
 #&gt; 9        man/dataset.Rd   text
 #&gt; 10   man/hello_world.Rd   text
 #&gt; 11  man/pkg1-package.Rd   text
-#&gt; 12 man/figures/logo.png binary</div></span></pre>
+#&gt; 12 man/figures/logo.png binary</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

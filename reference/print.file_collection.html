@@ -45,6 +45,8 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Print a file collection — print.file_collection" />
 <meta property="og:description" content="Print a file collection" />
@@ -178,7 +180,7 @@
     <pre class="examples"><div class='input'><span class='va'>fc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"examples/pkg1/"</span>, package <span class='op'>=</span> <span class='st'>"pkglite"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='collate.html'>collate</a></span><span class='op'>(</span><span class='fu'><a href='file_default.html'>file_default</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>fc</span>
-</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span><span> </span><span style='font-weight: bold;'>File collection</span><span> </span><span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span><span></span></div><div class='output co'>#&gt; <span class='message'>── Package: </span><span style='color: #0000BB;'>pkg1</span><span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                 path_rel format
+</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>File collection</span> <span style='color: #00BBBB;'>─────────────────────────────────────────────────────────────</span></span></div><div class='output co'>#&gt; <span class='message'>── Package: <span style='color: #0000BB;'>pkg1</span> ───────────────────────────────────────────────────────────────</span></div><div class='output co'>#&gt;                 path_rel format
 #&gt; 1            DESCRIPTION   text
 #&gt; 2              NAMESPACE   text
 #&gt; 3                NEWS.md   text
@@ -193,7 +195,7 @@
 #&gt; 12  man/figures/logo.png binary
 #&gt; 13 vignettes/example.bib   text
 #&gt; 14    vignettes/pkg1.Rmd   text
-#&gt; 15      data/dataset.rda binary</div></span></pre>
+#&gt; 15      data/dataset.rda binary</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
