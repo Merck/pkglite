@@ -29,6 +29,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -41,18 +43,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">pkglite</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="articles/pkglite.html">Get started</a>
 </li>
@@ -83,7 +79,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/Merck/pkglite/">
+  <a href="https://github.com/Merck/pkglite/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -100,9 +96,8 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="pkglite-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#pkglite-" class="anchor"></a>pkglite <img src="reference/figures/logo.png" alt="" align="right" height="139">
+<div class="section level1">
+<div class="page-header"><h1 id="pkglite-">pkglite <img src="reference/figures/logo.png" alt="" align="right" height="139"><a class="anchor" aria-label="anchor" href="#pkglite-"></a>
 </h1></div>
 <!-- badges: start -->
 
@@ -113,36 +108,36 @@
 <li>To curate file collections, see <code><a href="articles/filecollection.html">vignette("filecollection")</a></code>.</li>
 <li>The text file format is described in <code><a href="articles/format.html">vignette("format")</a></code>.</li>
 </ul>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the package via CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pkglite"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pkglite"</span><span class="op">)</span></code></pre></div>
 <p>Or, install from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"Merck/pkglite"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"Merck/pkglite"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="workflow" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workflow" class="anchor"></a>Workflow</h2>
+<div class="section level2">
+<h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://merck.github.io/pkglite/">"pkglite"</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://merck.github.io/pkglite/" class="external-link">"pkglite"</a></span><span class="op">)</span></code></pre></div>
 <p>Pack one R package:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="st">"/path/to/package/"</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="st">"/path/to/package/"</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="reference/pack.html">pack</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Pack multiple R packages:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pack.html">pack</a></span><span class="op">(</span>
-  <span class="st">"/path/to/pkg1/"</span> <span class="op">%&gt;%</span> <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-  <span class="st">"/path/to/pkg2/"</span> <span class="op">%&gt;%</span> <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
+  <span class="st">"/path/to/pkg1/"</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
+  <span class="st">"/path/to/pkg2/"</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
   output <span class="op">=</span> <span class="st">"/path/to/pkglite.txt"</span>
 <span class="op">)</span></code></pre></div>
 <p>Unpack one or more packages:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="st">"/path/to/pkglite.txt"</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="st">"/path/to/pkglite.txt"</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="reference/unpack.html">unpack</a></span><span class="op">(</span>output <span class="op">=</span> <span class="st">"/path/to/output/"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -150,47 +145,55 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=pkglite">https://​cloud.r-project.org/​package=pkglite</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/Merck/pkglite/">https://​github.com/​Merck/​pkglite/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/Merck/pkglite/issues">https://​github.com/​Merck/​pkglite/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Nan Xiao <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0250-5673" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Yilong Zhang <br><small class="roles"> Author </small>  </li>
-<li>Keaven Anderson <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=pkglite" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/Merck/pkglite/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/Merck/pkglite/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/Merck/pkglite/actions"><img src="https://github.com/Merck/pkglite/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/Merck/pkglite?branch=master"><img src="https://codecov.io/gh/Merck/pkglite/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://CRAN.R-project.org/package=pkglite"><img src="https://www.r-pkg.org/badges/version/pkglite" alt="CRAN status"></a></li>
-<li><a href="https://CRAN.R-project.org/package=pkglite"><img src="https://cranlogs.r-pkg.org/badges/pkglite" alt="CRAN Downloads"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing pkglite</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Nan Xiao <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0250-5673" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Yilong Zhang <br><small class="roles"> Author </small>  </li>
+<li>Keaven Anderson <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/Merck/pkglite/actions" class="external-link"><img src="https://github.com/Merck/pkglite/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/Merck/pkglite?branch=master" class="external-link"><img src="https://codecov.io/gh/Merck/pkglite/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://CRAN.R-project.org/package=pkglite" class="external-link"><img src="https://www.r-pkg.org/badges/version/pkglite" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=pkglite" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/pkglite" alt="CRAN Downloads"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with pkgdown 1.6.1.
+  <p>Developed by . Site built with pkgdown .
   </p>
   <p>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
 </div>
@@ -200,6 +203,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,18 +41,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkglite</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/pkglite.html">Get started</a>
 </li>
@@ -81,7 +77,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/Merck/pkglite/">
+  <a href="https://github.com/Merck/pkglite/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -102,7 +98,7 @@
       <h1 data-toc-skip>Represent Packages with pkglite.txt</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/Merck/pkglite/blob/master/vignettes/format.Rmd"><code>vignettes/format.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Merck/pkglite/blob/HEAD/vignettes/format.Rmd" class="external-link"><code>vignettes/format.Rmd</code></a></small>
       <div class="hidden name"><code>format.Rmd</code></div>
 
     </div>
@@ -110,9 +106,9 @@
     
     
 <p>The output file of <code><a href="../reference/pack.html">pkglite::pack()</a></code> uses a standard file format to allow the storage, exchange, and parsing of the packaged assets. The specification for this file is detailed below.</p>
-<div id="filename-and-extension" class="section level1">
-<h1 class="hasAnchor">
-<a href="#filename-and-extension" class="anchor"></a>Filename and extension</h1>
+<div class="section level1">
+<h1 id="filename-and-extension">Filename and extension<a class="anchor" aria-label="anchor" href="#filename-and-extension"></a>
+</h1>
 <p>Unless specified, the output file is automatically named.</p>
 <ul>
 <li>A single R package named <code>pkg1</code> is packed into <code>pkg1.txt</code>.</li>
@@ -120,14 +116,14 @@
 </ul>
 <p>The file extension is <code>.txt</code> so that one can recognize, open, and inspect it directly using regular text editors.</p>
 </div>
-<div id="file-format" class="section level1">
-<h1 class="hasAnchor">
-<a href="#file-format" class="anchor"></a>File format</h1>
-<p>The overall goal here is to make the file format unambiguous, human-friendly, and machine-readable. For <code>pkglite.txt</code>, we follow the <a href="https://www.debian.org/doc/debian-policy/ch-controlfields.html">DCF (Debian Control File) format</a>, used by Debian, R, and RStudio IDE. The minimalist, time-tested format allows us to save key-value data in plain text that humans can easily read and write. The format is also extendable to include more information about the assets being packed.</p>
+<div class="section level1">
+<h1 id="file-format">File format<a class="anchor" aria-label="anchor" href="#file-format"></a>
+</h1>
+<p>The overall goal here is to make the file format unambiguous, human-friendly, and machine-readable. For <code>pkglite.txt</code>, we follow the <a href="https://www.debian.org/doc/debian-policy/ch-controlfields.html" class="external-link">DCF (Debian Control File) format</a>, used by Debian, R, and RStudio IDE. The minimalist, time-tested format allows us to save key-value data in plain text that humans can easily read and write. The format is also extendable to include more information about the assets being packed.</p>
 </div>
-<div id="file-structure" class="section level1">
-<h1 class="hasAnchor">
-<a href="#file-structure" class="anchor"></a>File structure</h1>
+<div class="section level1">
+<h1 id="file-structure">File structure<a class="anchor" aria-label="anchor" href="#file-structure"></a>
+</h1>
 <p>A <code>pkglite.txt</code> is structured following these rules:</p>
 <ul>
 <li>One file contains multiple DCF format blocks.</li>
@@ -135,39 +131,39 @@
 <li>Each block is separated by a blank line. The last block has a trailing blank line.</li>
 </ul>
 </div>
-<div id="field-names-and-values" class="section level1">
-<h1 class="hasAnchor">
-<a href="#field-names-and-values" class="anchor"></a>Field names and values</h1>
+<div class="section level1">
+<h1 id="field-names-and-values">Field names and values<a class="anchor" aria-label="anchor" href="#field-names-and-values"></a>
+</h1>
 <p>Each block has at least four key-value pairs called <strong>fields</strong>. For example:</p>
-<pre><code>Package: pkglite
-File: R/pkglite-package.R
-Format: text
-Content:
-  #' @keywords internal
-  "_PACKAGE"</code></pre>
+<pre><code><span class="va">Package</span><span class="op">:</span> <span class="va">pkglite</span>
+<span class="va">File</span><span class="op">:</span> <span class="va">R</span><span class="op">/</span><span class="va">pkglite</span><span class="op">-</span><span class="va">package.R</span>
+<span class="va">Format</span><span class="op">:</span> <span class="va">text</span>
+<span class="va">Content</span><span class="op">:</span>
+  <span class="co">#' @keywords internal</span>
+  <span class="st">"_PACKAGE"</span></code></pre>
 <p>The keys and values in these fields are separated by a colon and a whitespace except for <code>Content</code>, whose value part starts in a new line.</p>
-<div id="package" class="section level2">
-<h2 class="hasAnchor">
-<a href="#package" class="anchor"></a><code>Package</code>
+<div class="section level2">
+<h2 id="package">
+<code>Package</code><a class="anchor" aria-label="anchor" href="#package"></a>
 </h2>
 <p>R package name. Since one <code>pkglite.txt</code> might contain files from multiple packages, this field is used to declare the package the file is under explicitly.</p>
 <p>This design implies that each <code>pkglite.txt</code> can only store multiple R packages with unique names.</p>
 </div>
-<div id="file" class="section level2">
-<h2 class="hasAnchor">
-<a href="#file" class="anchor"></a><code>File</code>
+<div class="section level2">
+<h2 id="file">
+<code>File</code><a class="anchor" aria-label="anchor" href="#file"></a>
 </h2>
 <p>The relative path (to the package root) of the file.</p>
 </div>
-<div id="format" class="section level2">
-<h2 class="hasAnchor">
-<a href="#format" class="anchor"></a><code>Format</code>
+<div class="section level2">
+<h2 id="format">
+<code>Format</code><a class="anchor" aria-label="anchor" href="#format"></a>
 </h2>
 <p>File format category. It can be <code>text</code> or <code>binary</code>. This determines how the file content will be read and written.</p>
 </div>
-<div id="content" class="section level2">
-<h2 class="hasAnchor">
-<a href="#content" class="anchor"></a><code>Content</code>
+<div class="section level2">
+<h2 id="content">
+<code>Content</code><a class="anchor" aria-label="anchor" href="#content"></a>
 </h2>
 <p>The file content. The text format files are stored as-is, while the binary files are stored in the hexadecimal format, following the RTF format convention. In both cases, two whitespaces are added before each line of the value part.</p>
 </div>
@@ -185,7 +181,7 @@ Content:
 
 
       <footer><div class="copyright">
-  <p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with pkgdown 1.6.1.
+  <p>Developed by . Site built with pkgdown .
   </p>
   <p>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
 </div>
@@ -195,6 +191,8 @@ Content:
 
   
 
+
+  
 
   </body>
 </html>
