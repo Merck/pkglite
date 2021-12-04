@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 2.0.0
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   filecollection: filecollection.html
   filespec: filespec.html
   format: format.html
   pkglite: pkglite.html
-last_built: 2021-12-03T02:29Z
+last_built: 2021-12-04T00:23Z
 
