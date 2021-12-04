@@ -1,5 +1,7 @@
 destination: docs
 
+url: https://merck.github.io/pkglite/
+
 template:
   bootstrap: 5
   bslib:
