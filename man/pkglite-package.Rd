@@ -8,9 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-A tool, grammar, and standard to represent and exchange
-    R package source code as text files. Converts one or more source
-    packages to a text file and restores the package structures from the file.
+A tool, grammar, and standard to represent and exchange R package source code as text files. Converts one or more source packages to a text file and restores the package structures from the file.
 }
 \seealso{
 Useful links:

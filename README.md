@@ -1,4 +1,4 @@
-# pkglite <img src="man/figures/logo.png" alt="" align="right" height="139" />
+# pkglite <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Merck/pkglite/workflows/R-CMD-check/badge.svg)](https://github.com/Merck/pkglite/actions)
