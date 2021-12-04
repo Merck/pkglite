@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://merck.github.io/pkglite/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://merck.github.io/pkglite/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/articles/filecollection.html</loc>
+    <loc>https://merck.github.io/pkglite/articles/filecollection.html</loc>
   </url>
   <url>
-    <loc>/articles/filespec.html</loc>
+    <loc>https://merck.github.io/pkglite/articles/filespec.html</loc>
   </url>
   <url>
-    <loc>/articles/format.html</loc>
+    <loc>https://merck.github.io/pkglite/articles/format.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://merck.github.io/pkglite/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/pkglite.html</loc>
+    <loc>https://merck.github.io/pkglite/articles/pkglite.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://merck.github.io/pkglite/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://merck.github.io/pkglite/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://merck.github.io/pkglite/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/collate.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/collate.html</loc>
   </url>
   <url>
-    <loc>/reference/ext_binary.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/ext_binary.html</loc>
   </url>
   <url>
-    <loc>/reference/ext_text.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/ext_text.html</loc>
   </url>
   <url>
-    <loc>/reference/file_auto.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_auto.html</loc>
   </url>
   <url>
-    <loc>/reference/file_default.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_default.html</loc>
   </url>
   <url>
-    <loc>/reference/file_ectd.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_ectd.html</loc>
   </url>
   <url>
-    <loc>/reference/file_name_patterns.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_name_patterns.html</loc>
   </url>
   <url>
-    <loc>/reference/file_spec.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_spec.html</loc>
   </url>
   <url>
-    <loc>/reference/file_spec_templates.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/file_spec_templates.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/is_file_collection.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/is_file_collection.html</loc>
   </url>
   <url>
-    <loc>/reference/is_file_spec.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/is_file_spec.html</loc>
   </url>
   <url>
-    <loc>/reference/merge.file_collection.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/merge.file_collection.html</loc>
   </url>
   <url>
-    <loc>/reference/pack.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/pack.html</loc>
   </url>
   <url>
-    <loc>/reference/pipe.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>/reference/pkglite-package.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/pkglite-package.html</loc>
   </url>
   <url>
-    <loc>/reference/print.file_collection.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/print.file_collection.html</loc>
   </url>
   <url>
-    <loc>/reference/print.file_spec.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/print.file_spec.html</loc>
   </url>
   <url>
-    <loc>/reference/prune.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/prune.html</loc>
   </url>
   <url>
-    <loc>/reference/remove_content.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/remove_content.html</loc>
   </url>
   <url>
-    <loc>/reference/sanitize.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/sanitize.html</loc>
   </url>
   <url>
-    <loc>/reference/sanitize_file_collection.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/sanitize_file_collection.html</loc>
   </url>
   <url>
-    <loc>/reference/unpack.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/unpack.html</loc>
   </url>
   <url>
-    <loc>/reference/verify_ascii.html</loc>
+    <loc>https://merck.github.io/pkglite/reference/verify_ascii.html</loc>
   </url>
 </urlset>
