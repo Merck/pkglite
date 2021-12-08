@@ -90,9 +90,9 @@
     
     
 <p>The output file of <code><a href="../reference/pack.html">pkglite::pack()</a></code> uses a standard file format to allow the storage, exchange, and parsing of the packaged assets. The specification for this file is detailed below.</p>
-<div class="section level1">
-<h1 id="filename-and-extension">Filename and extension<a class="anchor" aria-label="anchor" href="#filename-and-extension"></a>
-</h1>
+<div class="section level2">
+<h2 id="filename-and-extension">Filename and extension<a class="anchor" aria-label="anchor" href="#filename-and-extension"></a>
+</h2>
 <p>Unless specified, the output file is automatically named.</p>
 <ul>
 <li>A single R package named <code>pkg1</code> is packed into <code>pkg1.txt</code>.</li>
@@ -100,14 +100,14 @@
 </ul>
 <p>The file extension is <code>.txt</code> so that one can recognize, open, and inspect it directly using regular text editors.</p>
 </div>
-<div class="section level1">
-<h1 id="file-format">File format<a class="anchor" aria-label="anchor" href="#file-format"></a>
-</h1>
+<div class="section level2">
+<h2 id="file-format">File format<a class="anchor" aria-label="anchor" href="#file-format"></a>
+</h2>
 <p>The overall goal here is to make the file format unambiguous, human-friendly, and machine-readable. For <code>pkglite.txt</code>, we follow the <a href="https://www.debian.org/doc/debian-policy/ch-controlfields.html" class="external-link">DCF (Debian Control File) format</a>, used by Debian, R, and RStudio IDE. The minimalist, time-tested format allows us to save key-value data in plain text that humans can easily read and write. The format is also extendable to include more information about the assets being packed.</p>
 </div>
-<div class="section level1">
-<h1 id="file-structure">File structure<a class="anchor" aria-label="anchor" href="#file-structure"></a>
-</h1>
+<div class="section level2">
+<h2 id="file-structure">File structure<a class="anchor" aria-label="anchor" href="#file-structure"></a>
+</h2>
 <p>A <code>pkglite.txt</code> is structured following these rules:</p>
 <ul>
 <li>One file contains multiple DCF format blocks.</li>
@@ -115,9 +115,9 @@
 <li>Each block is separated by a blank line. The last block has a trailing blank line.</li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="field-names-and-values">Field names and values<a class="anchor" aria-label="anchor" href="#field-names-and-values"></a>
-</h1>
+<div class="section level2">
+<h2 id="field-names-and-values">Field names and values<a class="anchor" aria-label="anchor" href="#field-names-and-values"></a>
+</h2>
 <p>Each block has at least four key-value pairs called <strong>fields</strong>. For example:</p>
 <pre><code><span class="va">Package</span><span class="op">:</span> <span class="va">pkglite</span>
 <span class="va">File</span><span class="op">:</span> <span class="va">R</span><span class="op">/</span><span class="va">pkglite</span><span class="op">-</span><span class="va">package.R</span>
@@ -126,29 +126,29 @@
   <span class="co">#' @keywords internal</span>
   <span class="st">"_PACKAGE"</span></code></pre>
 <p>The keys and values in these fields are separated by a colon and a whitespace except for <code>Content</code>, whose value part starts in a new line.</p>
-<div class="section level2">
-<h2 id="package">
+<div class="section level3">
+<h3 id="package">
 <code>Package</code><a class="anchor" aria-label="anchor" href="#package"></a>
-</h2>
+</h3>
 <p>R package name. Since one <code>pkglite.txt</code> might contain files from multiple packages, this field is used to declare the package the file is under explicitly.</p>
 <p>This design implies that each <code>pkglite.txt</code> can only store multiple R packages with unique names.</p>
 </div>
-<div class="section level2">
-<h2 id="file">
+<div class="section level3">
+<h3 id="file">
 <code>File</code><a class="anchor" aria-label="anchor" href="#file"></a>
-</h2>
+</h3>
 <p>The relative path (to the package root) of the file.</p>
 </div>
-<div class="section level2">
-<h2 id="format">
+<div class="section level3">
+<h3 id="format">
 <code>Format</code><a class="anchor" aria-label="anchor" href="#format"></a>
-</h2>
+</h3>
 <p>File format category. It can be <code>text</code> or <code>binary</code>. This determines how the file content will be read and written.</p>
 </div>
-<div class="section level2">
-<h2 id="content">
+<div class="section level3">
+<h3 id="content">
 <code>Content</code><a class="anchor" aria-label="anchor" href="#content"></a>
-</h2>
+</h3>
 <p>The file content. The text format files are stored as-is, while the binary files are stored in the hexadecimal format, following the RTF format convention. In both cases, two whitespaces are added before each line of the value part.</p>
 </div>
 </div>
