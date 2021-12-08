@@ -6,17 +6,20 @@ output:
     toc: true
     toc_float: false
     toc_depth: 4
-    number_sections: true
+    number_sections: false
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Compact Package Representations}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "")
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+)
 ```
 
-# Introduction
+## Introduction
 
 `pkglite` offers a solution for converting R package source code to a compact,
 text-based representation and restore the source package structure from
@@ -35,7 +38,7 @@ the output file `pkglite.txt`. These designs allow us to leave a clear and
 skimmable trace in the code when generating such compact representations,
 thus improves reproducibility.
 
-# Example workflow
+## Example workflow
 
 To demonstrate the basic usage of pkglite, we will show how to pack and unpack
 one or multiple R packages.
@@ -44,7 +47,7 @@ one or multiple R packages.
 library("pkglite")
 ```
 
-## Pack one package
+### Pack one package
 
 First, locate the input package directory and the output file:
 
@@ -83,7 +86,7 @@ txt %>%
   length()
 ```
 
-## Unpack one package
+### Unpack one package
 
 To unpack (restore) the file structures from the text file, use `unpack()`:
 
@@ -102,7 +105,7 @@ out %>%
 
 To install the packages after unpacking them, use `unpack(..., install = TRUE)`.
 
-## Pack multiple packages
+### Pack multiple packages
 
 `pack()` accepts one or more input directories. Therefore, one can pack
 multiple R packages (file collections) into one file at once:
@@ -127,7 +130,7 @@ txt %>%
   length()
 ```
 
-## Unpack multiple packages
+### Unpack multiple packages
 
 Use the same call to unpack (and install) multiple R packages from the text file:
 
@@ -148,7 +151,7 @@ out %>%
 The file format specification for `pkglite.txt` is described in
 `vignette("format", package = "pkglite")`.
 
-# Helper functions
+## Helper functions
 
 Verify if the text file contains only ASCII characters:
 
