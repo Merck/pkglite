@@ -57,7 +57,7 @@ collate <- function(pkg = ".", ...) {
   # where the return can be a list of file specs
   lst_spec <- flatten_file_spec(lst_spec)
   k <- length(lst_spec)
-  if (k == 0L) stop("Please provide at least one file specification")
+  if (k == 0L) stop("Must provide at least one file specification.", call. = FALSE)
   lst_collection <- lapply(seq_len(k), function(i) fs_to_df(path, lst_spec[[i]]))
   df <- do.call(rbind, lst_collection)
   # remove duplicates
@@ -131,7 +131,7 @@ fs_to_df <- function(pkg_path, file_spec) {
 #' @noRd
 flatten_file_spec <- function(lst) {
   if (!all(sapply(lapply(lst, class), `%in%`, c("file_spec", "list")))) {
-    stop("Input has objects that are not file specifications")
+    stop("All inputs must be file specification objects.", call. = FALSE)
   }
   do.call(c, lapply(lst, function(x) if (!is_file_spec(x)) flatten_file_spec(x) else list(x)))
 }
@@ -195,7 +195,7 @@ create_fc_df <- function(nrow) {
 #' @noRd
 get_pkg_name <- function(path) {
   path <- paste0(path, "/DESCRIPTION")
-  if (!file.exists(path)) stop("Package root does not have a DESCRIPTION file")
+  if (!file.exists(path)) stop("Can't find the `DESCRIPTION` file in package root.", call. = FALSE)
   desc_file <- normalizePath(path, winslash = "/")
   pkg_name <- unname(read.dcf(desc_file)[, "Package"])
   pkg_name

@@ -52,7 +52,7 @@
 #' )
 file_spec <- function(path, pattern = NULL, format = c("binary", "text"),
                       recursive = TRUE, ignore_case = TRUE, all_files = FALSE) {
-  if (missing(path)) stop("path cannot be empty")
+  if (missing(path)) stop("Must provide a non-empty `path`.", call. = FALSE)
   format <- match.arg(format)
 
   lst <- list(

@@ -131,11 +131,11 @@ merge.file_collection <- function(x, y, ...) {
   lst_fc <- list(x, y, ...)
 
   if (!all(sapply(lst_fc, is_file_collection))) {
-    stop("All inputs must be file collection objects")
+    stop("All inputs must be file collection objects.", call. = FALSE)
   }
   pkg_name <- unique(sapply(lst_fc, "[[", "pkg_name"))
   if (length(pkg_name) != 1L) {
-    stop("Can only merge file collections for the same package")
+    stop("Can't merge file collections for different packages.", call. = FALSE)
   }
 
   rbind0 <- function(...) rbind(..., stringsAsFactors = FALSE)
@@ -146,7 +146,7 @@ merge.file_collection <- function(x, y, ...) {
   df <- unique(df)
   # ensure relative paths are not duplicated
   if (anyDuplicated(df$"path_rel") != 0L) {
-    stop("Some files share single relative path but conflicting absolute paths")
+    stop("Some files share the same relative path but conflicting absolute paths.", call. = FALSE)
   }
 
   new_file_collection(pkg_name, df)
@@ -188,7 +188,7 @@ prune.file_collection <- function(x, path) {
   if (anyNA(idx)) {
     warning(
       paste0(
-        "No matching files in file collection: ",
+        "Can't find files in file collection: ",
         paste0(path[is.na(idx)], collapse = ", ")
       )
     )

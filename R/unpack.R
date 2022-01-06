@@ -73,7 +73,7 @@
 #'   list.files()
 unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
   # handle input ----
-  if (missing(input)) stop("Please provide an input file")
+  if (missing(input)) stop("Must provide an input file.", call. = FALSE)
 
   # read input ----
   if (!quiet) cli_h1("Unpacking from pkglite file")
@@ -224,7 +224,7 @@ extract_value <- function(x) {
 #'
 #' @noRd
 extract_value_multi <- function(x, start, end) {
-  if (length(start) != length(end)) stop("start and end must have equal length")
+  if (length(start) != length(end)) stop("`start` and `end` must have equal length.", call. = FALSE)
   k <- length(start)
   lapply(seq_len(k), function(i) substring(x[start[i]:end[i]], 3))
 }

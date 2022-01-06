@@ -68,8 +68,8 @@ pack <- function(..., output, quiet = FALSE) {
   lst_fc <- list(...)
   npkgs <- length(lst_fc)
   pkg_names <- get_fc_pkg(lst_fc)
-  if (npkgs < 1L) stop("Please provide at least one file collection as input")
-  if (!all(sapply(lst_fc, is_file_collection))) stop("All inputs must be file collections")
+  if (npkgs < 1L) stop("Must provide at least one file collection as input.", call. = FALSE)
+  if (!all(sapply(lst_fc, is_file_collection))) stop("All inputs must be file collection objects.", call. = FALSE)
 
   # determine output file name ----
   output_default <- if (npkgs > 1L) "pkglite.txt" else tolower(paste0(pkg_names[1L], ".txt"))

@@ -48,7 +48,7 @@
 #'   pack(output = txt, quiet = TRUE) %>%
 #'   verify_ascii()
 verify_ascii <- function(input, quiet = FALSE) {
-  if (missing(input)) stop("Please provide an input file")
+  if (missing(input)) stop("Must provide an input file.", call. = FALSE)
   input <- file.path(input)
   x <- suppressMessages(showNonASCIIfile(input))
   has_only_ascii <- !as.logical(length(x))
@@ -91,7 +91,7 @@ verify_ascii <- function(input, quiet = FALSE) {
 #'   pack(output = txt, quiet = TRUE) %>%
 #'   remove_content(c("## New Features", "## Improvements"), quiet = TRUE)
 remove_content <- function(input, x, quiet = FALSE) {
-  if (missing(input)) stop("Please provide an input file")
+  if (missing(input)) stop("Must provide an input file.", call. = FALSE)
   y <- readLines(input)
 
   idx_content <- which(substr(y, 1L, 2L) == "  ")
