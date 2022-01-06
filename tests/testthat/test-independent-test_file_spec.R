@@ -18,7 +18,7 @@ testthat::test_that("file_spec() creates the correct 'file_spec' object", {
   testthat::expect_equal(fs_source$ignore_case, ignore_case)
   testthat::expect_equal(fs_source$all_files, all_files)
   testthat::expect_equal(class(fs_source), "file_spec")
-  testthat::expect_error(file_spec(), "path cannot be empty")
+  testthat::expect_error(file_spec(), "Must provide a non-empty `path`.")
 })
 
 testthat::test_that("is_file_spec() checks the presence of 'file_spec' as the class specifier", {

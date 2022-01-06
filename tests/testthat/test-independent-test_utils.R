@@ -22,7 +22,7 @@ test_that("verify_ascii() should check if all texts in file are printable", {
 
   expect_equal(verify_ascii(f_bin), FALSE)
   expect_equal(verify_ascii(f_txt), TRUE)
-  expect_error(verify_ascii(), "Please provide an input file")
+  expect_error(verify_ascii(), "Must provide an input file.")
 
   unlink(f_bin)
   unlink(f_txt)
