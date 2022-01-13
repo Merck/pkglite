@@ -77,7 +77,7 @@ unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
 
   # read input ----
   if (!quiet) cli_h1("Unpacking from pkglite file")
-  if (!quiet) cli_rule(left = "Reading file: {.pkg {input}}")
+  if (!quiet) cli_rule("Reading file: ", cli_path_src(input))
   lst <- read_pkglite(input)
 
   pkg_name <- lst[["pkg_name"]]
@@ -94,10 +94,10 @@ unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
   path_rel <- file.path(paste0(pkg_name, "/", path))
 
   # write all files in all packages ----
-  if (!quiet) cli_text("Writing to: {.file {output}}")
+  if (!quiet) cli_text("Writing to: ", cli_path_dst(output))
   lapply(seq_len(nfiles), function(i) {
     path_rel_cli <- path_rel[i]
-    if (!quiet) cli_text(left = "Writing {.field {path_rel_cli}}")
+    if (!quiet) cli_text("Writing ", cli_path_dst(path_rel_cli))
     write_pkg(path = path_abs[i], format = format[i], content = content[[i]])
   })
 
@@ -108,7 +108,7 @@ unpack <- function(input, output = ".", install = FALSE, quiet = FALSE, ...) {
   if (install) {
     lapply(seq_len(npkgs), function(i) {
       pkg <- pkgs[i]
-      if (!quiet) cli_rule(left = "Installing package: {.pkg {pkg}}")
+      if (!quiet) cli_rule("Installing package: ", cli_pkg(pkg))
       remotes::install_local(path_pkg[i], quiet = quiet, ...)
     })
   }

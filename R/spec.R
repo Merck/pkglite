@@ -113,8 +113,6 @@ is_file_spec <- function(object) {
 #'
 #' @method print file_spec
 #'
-#' @importFrom cli cli_h1 cli_ul cli_li
-#'
 #' @export
 #'
 #' @examples
@@ -126,12 +124,11 @@ is_file_spec <- function(object) {
 #' fs
 print.file_spec <- function(x, ...) {
   cli_h1("File specification")
-  cli_ul()
-  cli_li("Relative path: {.path {x$path}}")
-  cli_li("Pattern: {.val {x$pattern}}")
-  cli_li("Format: {.val {x$format}}")
-  cli_li("Recursive: {.val {x$recursive}}")
-  cli_li("Ignore case: {.val {x$ignore_case}}")
-  cli_li("All files: {.val {x$all_files}}")
+  cli_li("Relative path: ", cli_str(x$path))
+  cli_li("Pattern: ", cli_str(x$pattern))
+  cli_li("Format: ", cli_str(x$format))
+  cli_li("Recursive: ", cli_bool(x$recursive))
+  cli_li("Ignore case: ", cli_bool(x$ignore_case))
+  cli_li("All files: ", cli_bool(x$all_files))
   invisible(x)
 }

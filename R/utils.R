@@ -103,11 +103,11 @@ remove_content <- function(input, x, quiet = FALSE) {
     if (!quiet) {
       lapply(seq_len(k), function(i) {
         idx <- idx_content[idx_match][i]
-        cli_text(left = "Removing line {.field {idx}}")
+        cli_text("Removing line ", cli_num(idx))
       })
     }
     y <- y[-idx_content[idx_match]]
-    if (!quiet) cli_text("Writing to: {.file {input}}")
+    if (!quiet) cli_text("Writing to: ", cli_path_dst(input))
     writeLines(y, con = input)
   } else {
     if (!quiet) cli_text("No matching content found")

@@ -79,8 +79,6 @@ is_file_collection <- function(object) {
 #' }
 #' \if{html}{The contents of this section are shown in PDF user manual only.}
 #'
-#' @importFrom cli cli_h1 cli_rule
-#'
 #' @export
 #'
 #' @examples
@@ -94,7 +92,7 @@ print.file_collection <- function(x, ...) {
   df$"path_abs" <- NULL
 
   cli_h1("File collection")
-  cli_rule(left = "Package: {.pkg {pkg_name}}")
+  cli_rule("Package: ", cli_pkg(pkg_name))
   print(df)
   invisible(x)
 }
