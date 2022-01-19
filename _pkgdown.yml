@@ -22,6 +22,9 @@ footer:
     legal: "<br>Copyright &copy; Merck Sharp & Dohme Corp., a subsidiary of Merck & Co., Inc., Kenilworth, NJ, USA."
     blank: "<span></span>"
 
+code:
+  width: 74
+
 reference:
   - title: "Pack packages"
     desc: "Pack package(s) into a text file"

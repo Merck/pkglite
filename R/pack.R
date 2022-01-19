@@ -41,8 +41,6 @@
 #' }
 #' \if{html}{The contents of this section are shown in PDF user manual only.}
 #'
-#' @importFrom cli cli_h1 cli_rule cli_text
-#'
 #' @export pack
 #'
 #' @examples
@@ -79,12 +77,12 @@ pack <- function(..., output, quiet = FALSE) {
   if (!quiet) cli_h1("Packing into pkglite file")
   lst_text <- lapply(seq_len(npkgs), function(i) {
     pkg_name <- pkg_names[i]
-    if (!quiet) cli_rule(left = "Reading package: {.pkg {pkg_name}}")
+    if (!quiet) cli_rule("Reading package: ", cli_pkg(pkg_name))
     fc_to_text(lst_fc[[i]], quiet = quiet)
   })
 
   # write to a text file ----
-  if (!quiet) cli_text("Writing to: {.file {output_file}}")
+  if (!quiet) cli_text("Writing to: ", cli_path_dst(output_file))
   vec_text <- unlist(lst_text, recursive = TRUE)
   vec_text <- add_header(vec_text)
   writeLines(vec_text, con = output_file)
@@ -127,8 +125,6 @@ get_fc_pkg <- function(lst) {
 #' }
 #' \if{html}{The contents of this section are shown in PDF user manual only.}
 #'
-#' @importFrom cli cli_text
-#'
 #' @noRd
 fc_to_text <- function(fc, quiet = FALSE) {
   pkg_name <- fc[["pkg_name"]]
@@ -136,7 +132,7 @@ fc_to_text <- function(fc, quiet = FALSE) {
   nfiles <- nrow(df)
   lapply(seq_len(nfiles), function(i) {
     path_rel <- df[i, "path_rel"]
-    if (!quiet) cli_text("Reading {.field {path_rel}}")
+    if (!quiet) cli_text("Reading ", cli_path_src(path_rel))
     file_to_vec(df[i, "path_abs"], format = df[i, "format"], pkg_name = pkg_name, path_rel = path_rel)
   })
 }

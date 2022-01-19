@@ -20,7 +20,7 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 Depends: R (>= 3.5.0)
 Imports:
-    cli,
+    crayon,
     magrittr,
     remotes
 Suggests:
