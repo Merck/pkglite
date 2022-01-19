@@ -41,7 +41,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="../articles/pkglite.html">Get started</a>
@@ -78,6 +78,9 @@
     
   </div>
 </nav><div class="container template-article">
+
+
+
 <script src="filespec_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Generate File Specifications</h1>
@@ -105,9 +108,8 @@
 <span class="op">)</span>
 
 <span class="va">fs</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File specification</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; • Relative path: <span style="color: #0000BB;">R/</span></span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File specification </span><span style="color: #00BBBB;">----------------------------------------------------</span></span>
+<span class="co">#&gt; • Relative path: <span style="color: #0000BB;">"R/"</span></span>
 <span class="co">#&gt; • Pattern: <span style="color: #0000BB;">"\\.R$"</span></span>
 <span class="co">#&gt; • Format: <span style="color: #0000BB;">"text"</span></span>
 <span class="co">#&gt; • Recursive: <span style="color: #0000BB;">FALSE</span></span>
@@ -122,9 +124,8 @@
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples/pkg1/"</span>, package <span class="op">=</span> <span class="st">"pkglite"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="va">fs</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;           path_rel format</span>
 <span class="co">#&gt; 1         R/data.R   text</span>
 <span class="co">#&gt; 2        R/hello.R   text</span>
@@ -141,9 +142,8 @@
 <p>To generate a file collection that includes a core set of files under the package root, use</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_root_core</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;      path_rel format</span>
 <span class="co">#&gt; 1 DESCRIPTION   text</span>
 <span class="co">#&gt; 2   NAMESPACE   text</span>
@@ -152,9 +152,8 @@
 <p>To include all files under the package root, use</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_root_all</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;      path_rel format</span>
 <span class="co">#&gt; 1 DESCRIPTION   text</span>
 <span class="co">#&gt; 2   NAMESPACE   text</span>
@@ -163,9 +162,8 @@
 <p>We can feed one or more file specifications to <code><a href="../reference/collate.html">collate()</a></code>. The union of the matched files will be returned:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;               path_rel format</span>
 <span class="co">#&gt; 1             R/data.R   text</span>
 <span class="co">#&gt; 2            R/hello.R   text</span>
@@ -178,17 +176,15 @@
 <p>If file specification did not match any files, an empty file collection is returned:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_src</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt; [1] path_rel format  </span>
 <span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></code></pre></div>
 <p>Naturally, this would not add additional files to the collection:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_src</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;               path_rel format</span>
 <span class="co">#&gt; 1             R/data.R   text</span>
 <span class="co">#&gt; 2            R/hello.R   text</span>
@@ -205,9 +201,8 @@
 <p><code><a href="../reference/file_default.html">file_default()</a></code> offers a default combination of the file specification templates.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_default.html">file_default</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;                 path_rel format</span>
 <span class="co">#&gt; 1            DESCRIPTION   text</span>
 <span class="co">#&gt; 2              NAMESPACE   text</span>
@@ -231,9 +226,8 @@
 <p><code><a href="../reference/file_auto.html">file_auto()</a></code> provides a specification that lists all files (with an extension) under a folder recursively. It also guesses the file format type based on the file extension. This is useful for directories like <code>inst/</code> that do not share a standard structure or filename pattern across packages.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_auto.html">file_auto</a></span><span class="op">(</span><span class="st">"inst/"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">File collection</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; ── Package: <span style="color: #0000BB;">pkg1</span> ───────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
+<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
 <span class="co">#&gt;                   path_rel format</span>
 <span class="co">#&gt; 1 inst/extdata/dataset.tsv   text</span></code></pre></div>
 </div>
@@ -245,7 +239,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1. <br>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
+<p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2. <br>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
 </div>
 
 <div class="pkgdown-footer-right">
