@@ -120,7 +120,7 @@ cli_rule <- function(x, y) {
 #'
 #' @noRd
 cli_li <- function(...) {
-  bullet <- "\u2022"
+  bullet <- "-"
   cli_text(bullet, " ", ...)
 }
 

@@ -31,7 +31,7 @@ testthat::test_that("cli_li prints string with a leading bullet point", {
   strs <- "This is a test heading "
   strs2 <- "plus other things"
   cli_li(strs,strs2)
-  testthat::expect_output(cli_li(strs,strs2), regexp="\u2022 This is a test heading plus other things")
+  testthat::expect_output(cli_li(strs,strs2), regexp="- This is a test heading plus other things")
 })
 #test cli_str
 testthat::test_that("cli_str create strings with double quotation in blue when printed in console", {
