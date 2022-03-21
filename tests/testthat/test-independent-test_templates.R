@@ -63,7 +63,7 @@ testthat::test_that("file_root_core() creates the correct 'file_spec' object", {
   is_root_core <- is_file_spec_type(
     fs_source = file_root_core(),
     path = "",
-    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|\\.Rbuildignore$",
+    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
     format = "text",
     recursive = FALSE,
     ignore_case = FALSE,
@@ -78,7 +78,7 @@ testthat::test_that("file_root_all() creates the correct 'file_spec' object", {
   is_root_all <- is_file_spec_type(
     fs_source = file_root_all(),
     path = "",
-    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^NEWS$|^LICENSE$|*[.]",
+    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^NEWS$|^LICENSE$|^LICENCE$|^configure$|^cleanup$|*[.]",
     format = "text",
     recursive = FALSE,
     ignore_case = TRUE,
@@ -102,7 +102,7 @@ testthat::test_that("file_r() creates the correct 'file_spec' objects", {
       if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
         path = "R/",
-        pattern = "\\.R$|\\.r$|\\.s$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$",
         format = "text",
         recursive = FALSE,
         ignore_case = TRUE,
@@ -195,7 +195,7 @@ testthat::test_that("file_src() creates the correct 'file_spec' object", {
   is_src <- is_file_spec_type(
     fs_source = file_src(),
     path = "src/",
-    pattern = "\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$",
+    pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$",
     format = "text",
     recursive = TRUE,
     ignore_case = TRUE,
@@ -234,7 +234,7 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "vignettes/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.Rmd$|\\.md$|\\.Rnw$|\\.tex$|\\.bib$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.css$|\\.js$|\\.xml$|\\.rtf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.Rmd$|\\.md$|\\.csl$|\\.Rnw$|\\.tex$|\\.ltx$|\\.rsp$|\\.cls$|\\.sty$|\\.bib$|\\.bst$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.js$|\\.json$|\\.xml$|\\.scss$|\\.less$|\\.rtf$|\\.save$|\\.Rout$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.lua$|\\.rs$|\\.jl$|\\.pl$|\\.pm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gtf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,
@@ -247,7 +247,7 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tif$|\\.tiff$|\\.emf$|\\.svgz$|\\.ico$|\\.webp$|\\.eps$|\\.ppm$|\\.pgm$|\\.pbm$|\\.pnm$|\\.o$|\\.so$|\\.rdb$|\\.rdx$|\\.woff2$|\\.woff$|\\.otf$|\\.ttf$|\\.eot$|\\.docx$|\\.xlsx$|\\.pptx$|\\.xltx$|\\.potx$|\\.doc$|\\.xls$|\\.ppt$|\\.odt$|\\.ods$|\\.odp$|\\.odg$|\\.odc$|\\.odf$|\\.odi$|\\.odm$|\\.odb$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$|\\.zip$|\\.tar$|\\.gz$|\\.tgz$|\\.bz2$|\\.7z$|\\.xz$|\\.sqlite$|\\.sqlite3$|\\.pyc$|\\.jar$|\\.mo$|\\.shx$|\\.shp$|\\.laz$|\\.sbx$|\\.sbn$|\\.nc$|\\.gpkg$|\\.bam$|\\.bai$|\\.wav$|\\.mp3$|\\.mid$|\\.ogg$|\\.au$|\\.m4a$|\\.mp4$|\\.avi$|\\.mov$|\\.mkv$|\\.webm$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -287,7 +287,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
         path = "",
-        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|\\.Rbuildignore$",
+        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
         format = "text",
         recursive = FALSE,
         ignore_case = FALSE,
@@ -299,7 +299,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       else if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
         path = "R/",
-        pattern = "\\.R$|\\.r$|\\.s$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$",
         format = "text",
         recursive = FALSE,
         ignore_case = TRUE,
@@ -363,7 +363,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       (!is_src & is_file_spec_type(
           fs_source = fs,
           path = "src/",
-          pattern = "\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$",
+          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$",
           format = "text",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -376,7 +376,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       else if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "vignettes/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.Rmd$|\\.md$|\\.Rnw$|\\.tex$|\\.bib$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.css$|\\.js$|\\.xml$|\\.rtf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.Rmd$|\\.md$|\\.csl$|\\.Rnw$|\\.tex$|\\.ltx$|\\.rsp$|\\.cls$|\\.sty$|\\.bib$|\\.bst$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.js$|\\.json$|\\.xml$|\\.scss$|\\.less$|\\.rtf$|\\.save$|\\.Rout$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.lua$|\\.rs$|\\.jl$|\\.pl$|\\.pm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gtf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,
@@ -389,7 +389,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tif$|\\.tiff$|\\.emf$|\\.svgz$|\\.ico$|\\.webp$|\\.eps$|\\.ppm$|\\.pgm$|\\.pbm$|\\.pnm$|\\.o$|\\.so$|\\.rdb$|\\.rdx$|\\.woff2$|\\.woff$|\\.otf$|\\.ttf$|\\.eot$|\\.docx$|\\.xlsx$|\\.pptx$|\\.xltx$|\\.potx$|\\.doc$|\\.xls$|\\.ppt$|\\.odt$|\\.ods$|\\.odp$|\\.odg$|\\.odc$|\\.odf$|\\.odi$|\\.odm$|\\.odb$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$|\\.zip$|\\.tar$|\\.gz$|\\.tgz$|\\.bz2$|\\.7z$|\\.xz$|\\.sqlite$|\\.sqlite3$|\\.pyc$|\\.jar$|\\.mo$|\\.shx$|\\.shp$|\\.laz$|\\.sbx$|\\.sbn$|\\.nc$|\\.gpkg$|\\.bam$|\\.bai$|\\.wav$|\\.mp3$|\\.mid$|\\.ogg$|\\.au$|\\.m4a$|\\.mp4$|\\.avi$|\\.mov$|\\.mkv$|\\.webm$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -449,7 +449,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
         path = "",
-        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|\\.Rbuildignore$",
+        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
         format = "text",
         recursive = FALSE,
         ignore_case = FALSE,
@@ -461,7 +461,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       else if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
         path = "R/",
-        pattern = "\\.R$|\\.r$|\\.s$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$",
         format = "text",
         recursive = FALSE,
         ignore_case = TRUE,
@@ -525,7 +525,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       (!is_src & is_file_spec_type(
           fs_source = fs,
           path = "src/",
-          pattern = "\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$",
+          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$",
           format = "text",
           recursive = TRUE,
           ignore_case = TRUE,
@@ -573,7 +573,7 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "inst/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.Rmd$|\\.md$|\\.Rnw$|\\.tex$|\\.bib$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.css$|\\.js$|\\.xml$|\\.rtf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.Rmd$|\\.md$|\\.csl$|\\.Rnw$|\\.tex$|\\.ltx$|\\.rsp$|\\.cls$|\\.sty$|\\.bib$|\\.bst$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.js$|\\.json$|\\.xml$|\\.scss$|\\.less$|\\.rtf$|\\.save$|\\.Rout$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.lua$|\\.rs$|\\.jl$|\\.pl$|\\.pm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gtf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,
@@ -586,7 +586,7 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "inst/",
-          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tiff$|\\.emf$|\\.ico$|\\.webp$|\\.eps$|\\.o$|\\.so$|\\.docx$|\\.xlsx$|\\.pptx$|\\.doc$|\\.xls$|\\.ppt$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$",
+          pattern = "\\.rda$|\\.rds$|\\.RData$|\\.jpg$|\\.jpeg$|\\.pdf$|\\.png$|\\.bmp$|\\.gif$|\\.tif$|\\.tiff$|\\.emf$|\\.svgz$|\\.ico$|\\.webp$|\\.eps$|\\.ppm$|\\.pgm$|\\.pbm$|\\.pnm$|\\.o$|\\.so$|\\.rdb$|\\.rdx$|\\.woff2$|\\.woff$|\\.otf$|\\.ttf$|\\.eot$|\\.docx$|\\.xlsx$|\\.pptx$|\\.xltx$|\\.potx$|\\.doc$|\\.xls$|\\.ppt$|\\.odt$|\\.ods$|\\.odp$|\\.odg$|\\.odc$|\\.odf$|\\.odi$|\\.odm$|\\.odb$|\\.sas7bdat$|\\.sas7bcat$|\\.xpt$|\\.xpt5$|\\.xpt8$|\\.zip$|\\.tar$|\\.gz$|\\.tgz$|\\.bz2$|\\.7z$|\\.xz$|\\.sqlite$|\\.sqlite3$|\\.pyc$|\\.jar$|\\.mo$|\\.shx$|\\.shp$|\\.laz$|\\.sbx$|\\.sbn$|\\.nc$|\\.gpkg$|\\.bam$|\\.bai$|\\.wav$|\\.mp3$|\\.mid$|\\.ogg$|\\.au$|\\.m4a$|\\.mp4$|\\.avi$|\\.mov$|\\.mkv$|\\.webm$",
           format = "binary",
           recursive = TRUE,
           ignore_case = TRUE,
