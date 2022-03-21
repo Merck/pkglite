@@ -36,19 +36,31 @@
 #' ext_text()
 ext_text <- function(flat = FALSE) {
   x <- list(
-    "r" = c("R", "r", "s"),
+    "r" = c("R", "r", "s", "q"),
     "man" = c("Rd", "rd"),
     "manfigures" = c("svg"),
     "src" = c(
-      "c", "h", "cpp", "hpp", "hxx", "hh",
-      "f", "f90", "f95", "f03"
+      "c", "h", "cpp", "cc", "hpp", "hxx", "hh",
+      "f", "f90", "f95", "f03",
+      "win", "in", "ucrt", "ac"
     ),
-    "vignette" = c("Rmd", "md", "Rnw", "tex", "bib"),
-    "meta" = c("Rproj", "dcf", "yml", "yaml"),
+    "vignette" = c(
+      "Rmd", "md", "csl", "Rnw", "tex", "ltx", "rsp", "cls", "sty",
+      "bib", "bst", "asis", "el"
+    ),
+    "meta" = c("Rproj", "dcf", "yml", "yaml", "note"),
     "table" = c("csv", "tsv", "txt"),
     "figure" = c("svg"),
-    "web" = c("html", "css", "js", "xml"),
-    "doc" = c("rtf")
+    "web" = c("html", "htm", "shtml", "css", "js", "json", "xml", "scss", "less"),
+    "doc" = c("rtf"),
+    "log" = c("save", "Rout"),
+    "proglang" = c(
+      "stan", "bug", "jags", "py", "ipynb", "sh", "java", "bat", "m4", "cmake",
+      "sql", "lua", "rs", "jl", "pl", "pm"
+    ),
+    "gettext" = c("po", "pot"),
+    "geo" = c("geojson", "kml", "prj", "cpg", "qpj"),
+    "bio" = c("fasta", "fastq", "vcf", "ped", "bim", "fam", "gff", "gtf")
   )
   if (flat) unique(unlist(x)) else x
 }
@@ -76,12 +88,24 @@ ext_binary <- function(flat = FALSE) {
     "data" = c("rda", "rds", "RData"),
     "manfigures" = c("jpg", "jpeg", "pdf", "png"),
     "figure" = c(
-      "png", "jpg", "jpeg", "bmp", "gif", "tiff", "emf",
-      "ico", "webp", "eps", "pdf"
+      "png", "jpg", "jpeg", "bmp", "gif", "tif", "tiff", "emf", "svgz",
+      "ico", "webp", "eps", "pdf",
+      "ppm", "pgm", "pbm", "pnm"
     ),
     "src" = c("o", "so"),
-    "mso" = c("docx", "xlsx", "pptx", "doc", "xls", "ppt"),
-    "sas" = c("sas7bdat", "sas7bcat", "xpt", "xpt5", "xpt8")
+    "build" = c("rdb", "rdx"),
+    "web" = c("woff2", "woff", "otf", "ttf", "eot"),
+    "mso" = c("docx", "xlsx", "pptx", "xltx", "potx", "doc", "xls", "ppt"),
+    "odf" = c("odt", "ods", "odp", "odg", "odc", "odf", "odi", "odm", "odb"),
+    "sas" = c("sas7bdat", "sas7bcat", "xpt", "xpt5", "xpt8"),
+    "archive" = c("zip", "tar", "gz", "tgz", "bz2", "7z", "xz"),
+    "db" = c("sqlite", "sqlite3"),
+    "proglang" = c("pyc", "jar"),
+    "gettext" = c("mo"),
+    "geo" = c("shx", "shp", "laz", "sbx", "sbn", "nc", "gpkg"),
+    "bio" = c("bam", "bai"),
+    "audio" = c("wav", "mp3", "mid", "ogg", "au", "m4a"),
+    "video" = c("mp4", "avi", "mov", "mkv", "webm")
   )
   if (flat) unique(unlist(x)) else x
 }
@@ -110,11 +134,22 @@ pattern_file_root_core <- function() {
     "^DESCRIPTION$",
     "^NAMESPACE$",
     "^README$",
+    "^README\\.Rmd$",
     "^README\\.md$",
     "^NEWS$",
     "^NEWS\\.md$",
     "^LICENSE$",
-    "\\.Rbuildignore$"
+    "^LICENCE$",
+    "^LICENSE\\.note$",
+    "^LICENCE\\.note$",
+    "\\.Rbuildignore$",
+    "\\.Rinstignore$",
+    "^configure$",
+    "^configure\\.win$",
+    "^configure\\.ac$",
+    "^configure\\.in$",
+    "^cleanup$",
+    "^cleanup\\.win$"
   )
 }
 
@@ -127,6 +162,9 @@ pattern_file_root_all <- function() {
     "^README$",
     "^NEWS$",
     "^LICENSE$",
+    "^LICENCE$",
+    "^configure$",
+    "^cleanup$",
     "*[.]"
   )
 }
