@@ -85,7 +85,7 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ext_text</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $r</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "R" "r" "s"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "R" "r" "s" "q"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $man</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rd" "rd"</span>
@@ -94,13 +94,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "svg"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $src</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c"   "h"   "cpp" "hpp" "hxx" "hh"  "f"   "f90" "f95" "f03"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "c"    "h"    "cpp"  "cc"   "hpp"  "hxx"  "hh"   "f"    "f90"  "f95" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "f03"  "win"  "in"   "ucrt" "ac"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $vignette</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rmd" "md"  "Rnw" "tex" "bib"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Rmd"  "md"   "csl"  "Rnw"  "tex"  "ltx"  "rsp"  "cls"  "sty"  "bib" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "bst"  "asis" "el"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $meta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rproj" "dcf"   "yml"   "yaml" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rproj" "dcf"   "yml"   "yaml"  "note" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "csv" "tsv" "txt"</span>
@@ -109,10 +111,27 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "svg"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $web</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "html" "css"  "js"   "xml" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "html"  "htm"   "shtml" "css"   "js"    "json"  "xml"   "scss" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [9] "less" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $doc</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "rtf"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $log</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "save" "Rout"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $proglang</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "stan"  "bug"   "jags"  "py"    "ipynb" "sh"    "java"  "bat"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "m4"    "cmake" "sql"   "lua"   "rs"    "jl"    "pl"    "pm"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $gettext</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "po"  "pot"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $geo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "geojson" "kml"     "prj"     "cpg"     "qpj"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $bio</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "fasta" "fastq" "vcf"   "ped"   "bim"   "fam"   "gff"   "gtf"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
