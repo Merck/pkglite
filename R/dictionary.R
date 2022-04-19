@@ -56,7 +56,7 @@ ext_text <- function(flat = FALSE) {
     "log" = c("save", "Rout"),
     "proglang" = c(
       "stan", "bug", "jags", "py", "ipynb", "sh", "java", "bat", "m4", "cmake",
-      "sql", "lua", "rs", "jl", "pl", "pm"
+      "sql", "lua", "rs", "jl", "pl", "pm", "brew"
     ),
     "gettext" = c("po", "pot"),
     "geo" = c("geojson", "kml", "prj", "cpg", "qpj"),
