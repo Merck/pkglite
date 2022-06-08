@@ -1,7 +1,7 @@
 # pkglite <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/Merck/pkglite/workflows/R-CMD-check/badge.svg)](https://github.com/Merck/pkglite/actions)
+[![R-CMD-check](https://github.com/Merck/pkglite/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Merck/pkglite/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/Merck/pkglite/branch/master/graph/badge.svg)](https://codecov.io/gh/Merck/pkglite?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/pkglite)](https://CRAN.R-project.org/package=pkglite)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/pkglite)](https://CRAN.R-project.org/package=pkglite)
