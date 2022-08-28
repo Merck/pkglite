@@ -4,10 +4,11 @@ Version: 0.2.1
 Authors@R: c(
     person("Nan", "Xiao", email = "nan.xiao1@merck.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0250-5673")),
-    person("Yilong", "Zhang", email = "yilong.zhang@merck.com", role = c("aut")),
-    person("Keaven", "Anderson", email = "keaven_anderson@merck.com", role = c("aut")),
-    person("Amin", "Shirazi", email = "amin.shirazi@merck.com", role = c("ctb")),
-    person("Jeff", "Cheng", email = "jeff.cheng@merck.com", role = c("ctb")),
+    person("Yilong", "Zhang", role = "aut"),
+    person("Keaven", "Anderson", email = "keaven_anderson@merck.com", role = "aut"),
+    person("Amin", "Shirazi", role = "ctb"),
+    person("Jeff", "Cheng", role = "ctb"),
+    person("Danfeng", "Fu", role = "ctb"),
     person("Merck Sharp & Dohme Corp", role = "cph")
     )
 Description: A tool, grammar, and standard to represent and exchange
