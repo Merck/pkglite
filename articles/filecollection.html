@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Curate File Collections">
@@ -83,7 +83,7 @@
 
 
 <div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Curate File Collections</h1>
             
       
@@ -99,31 +99,31 @@
 </h2>
 <p>You can merge file collections after they are collated. This operation returns the union of the files.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://merck.github.io/pkglite/">"pkglite"</a></span><span class="op">)</span>
-<span class="va">pkg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples/pkg1/"</span>, package <span class="op">=</span> <span class="st">"pkglite"</span><span class="op">)</span>
-
-<span class="va">fc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span>
-  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_root_core</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="va">fc</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
-<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
-<span class="co">#&gt;                path_rel format</span>
-<span class="co">#&gt; 1           DESCRIPTION   text</span>
-<span class="co">#&gt; 2             NAMESPACE   text</span>
-<span class="co">#&gt; 3               NEWS.md   text</span>
-<span class="co">#&gt; 4             README.md   text</span>
-<span class="co">#&gt; 5              R/data.R   text</span>
-<span class="co">#&gt; 6             R/hello.R   text</span>
-<span class="co">#&gt; 7      R/pkg1-package.R   text</span>
-<span class="co">#&gt; 8         R/sysdata.rda binary</span>
-<span class="co">#&gt; 9        man/dataset.Rd   text</span>
-<span class="co">#&gt; 10   man/hello_world.Rd   text</span>
-<span class="co">#&gt; 11  man/pkg1-package.Rd   text</span>
-<span class="co">#&gt; 12 man/figures/logo.png binary</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://merck.github.io/pkglite/">"pkglite"</a></span><span class="op">)</span></span>
+<span><span class="va">pkg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples/pkg1/"</span>, package <span class="op">=</span> <span class="st">"pkglite"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span></span>
+<span>  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_root_core</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_r</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="../reference/file_spec_templates.html">file_man</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fc</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span></span>
+<span><span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span></span>
+<span><span class="co">#&gt;                path_rel format</span></span>
+<span><span class="co">#&gt; 1           DESCRIPTION   text</span></span>
+<span><span class="co">#&gt; 2             NAMESPACE   text</span></span>
+<span><span class="co">#&gt; 3               NEWS.md   text</span></span>
+<span><span class="co">#&gt; 4             README.md   text</span></span>
+<span><span class="co">#&gt; 5              R/data.R   text</span></span>
+<span><span class="co">#&gt; 6             R/hello.R   text</span></span>
+<span><span class="co">#&gt; 7      R/pkg1-package.R   text</span></span>
+<span><span class="co">#&gt; 8         R/sysdata.rda binary</span></span>
+<span><span class="co">#&gt; 9        man/dataset.Rd   text</span></span>
+<span><span class="co">#&gt; 10   man/hello_world.Rd   text</span></span>
+<span><span class="co">#&gt; 11  man/pkg1-package.Rd   text</span></span>
+<span><span class="co">#&gt; 12 man/figures/logo.png binary</span></span></code></pre></div>
 <p>By design, one file collection object only stores metadata of files from a single package. Therefore, merging file collections from different packages will result in an error.</p>
 </div>
 <div class="section level2">
@@ -131,58 +131,58 @@
 </h2>
 <p>To remove files from a file collection, use <code><a href="../reference/prune.html">prune()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/prune.html">prune</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEWS.md"</span>, <span class="st">"man/figures/logo.png"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
-<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
-<span class="co">#&gt;               path_rel format</span>
-<span class="co">#&gt; 1          DESCRIPTION   text</span>
-<span class="co">#&gt; 2            NAMESPACE   text</span>
-<span class="co">#&gt; 3            README.md   text</span>
-<span class="co">#&gt; 4             R/data.R   text</span>
-<span class="co">#&gt; 5            R/hello.R   text</span>
-<span class="co">#&gt; 6     R/pkg1-package.R   text</span>
-<span class="co">#&gt; 7        R/sysdata.rda binary</span>
-<span class="co">#&gt; 8       man/dataset.Rd   text</span>
-<span class="co">#&gt; 9   man/hello_world.Rd   text</span>
-<span class="co">#&gt; 10 man/pkg1-package.Rd   text</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/prune.html">prune</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEWS.md"</span>, <span class="st">"man/figures/logo.png"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span></span>
+<span><span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span></span>
+<span><span class="co">#&gt;               path_rel format</span></span>
+<span><span class="co">#&gt; 1          DESCRIPTION   text</span></span>
+<span><span class="co">#&gt; 2            NAMESPACE   text</span></span>
+<span><span class="co">#&gt; 3            README.md   text</span></span>
+<span><span class="co">#&gt; 4             R/data.R   text</span></span>
+<span><span class="co">#&gt; 5            R/hello.R   text</span></span>
+<span><span class="co">#&gt; 6     R/pkg1-package.R   text</span></span>
+<span><span class="co">#&gt; 7        R/sysdata.rda binary</span></span>
+<span><span class="co">#&gt; 8       man/dataset.Rd   text</span></span>
+<span><span class="co">#&gt; 9   man/hello_world.Rd   text</span></span>
+<span><span class="co">#&gt; 10 man/pkg1-package.Rd   text</span></span></code></pre></div>
 <p>Only the files matching the exact relative path(s) will be removed.</p>
 <p>The prune operation is type-stable. If all files in a file collection are removed, an empty file collection is returned so that it can still be merged with the other file collections.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/prune.html">prune</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data/dataset.rda"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
-<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
-<span class="co">#&gt; [1] path_rel format  </span>
-<span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">pkg</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/collate.html">collate</a></span><span class="op">(</span><span class="fu"><a href="../reference/file_spec_templates.html">file_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/prune.html">prune</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data/dataset.rda"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span></span>
+<span><span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span></span>
+<span><span class="co">#&gt; [1] path_rel format  </span></span>
+<span><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="sanitize-file-collections">Sanitize file collections<a class="anchor" aria-label="anchor" href="#sanitize-file-collections"></a>
 </h2>
 <p>A file collection might contain files that should almost always be excluded, such as the files defined in <code><a href="../reference/file_name_patterns.html">pattern_file_sanitize()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/file_name_patterns.html">pattern_file_sanitize</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/\\.DS_Store$"     "/Thumbs\\.db$"     "/\\.git$"         </span>
-<span class="co">#&gt; [4] "/\\.svn$"          "/\\.hg$"           "/\\.Rproj\\.user$"</span>
-<span class="co">#&gt; [7] "/\\.Rhistory$"     "/\\.RData$"        "/\\.Ruserdata$"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/file_name_patterns.html">pattern_file_sanitize</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/\\.DS_Store$"     "/Thumbs\\.db$"     "/\\.git$"         </span></span>
+<span><span class="co">#&gt; [4] "/\\.svn$"          "/\\.hg$"           "/\\.Rproj\\.user$"</span></span>
+<span><span class="co">#&gt; [7] "/\\.Rhistory$"     "/\\.RData$"        "/\\.Ruserdata$"</span></span></code></pre></div>
 <p>You can use <code><a href="../reference/sanitize.html">sanitize()</a></code> to remove such files (if any) from a file collection:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/sanitize.html">sanitize</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span>
-<span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span>
-<span class="co">#&gt;                path_rel format</span>
-<span class="co">#&gt; 1           DESCRIPTION   text</span>
-<span class="co">#&gt; 2             NAMESPACE   text</span>
-<span class="co">#&gt; 3               NEWS.md   text</span>
-<span class="co">#&gt; 4             README.md   text</span>
-<span class="co">#&gt; 5              R/data.R   text</span>
-<span class="co">#&gt; 6             R/hello.R   text</span>
-<span class="co">#&gt; 7      R/pkg1-package.R   text</span>
-<span class="co">#&gt; 8         R/sysdata.rda binary</span>
-<span class="co">#&gt; 9        man/dataset.Rd   text</span>
-<span class="co">#&gt; 10   man/hello_world.Rd   text</span>
-<span class="co">#&gt; 11  man/pkg1-package.Rd   text</span>
-<span class="co">#&gt; 12 man/figures/logo.png binary</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/sanitize.html">sanitize</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File collection </span><span style="color: #00BBBB;">-------------------------------------------------------</span></span></span>
+<span><span class="co">#&gt; -- Package: <span style="color: #0000BB;">pkg1</span> ---------------------------------------------------------</span></span>
+<span><span class="co">#&gt;                path_rel format</span></span>
+<span><span class="co">#&gt; 1           DESCRIPTION   text</span></span>
+<span><span class="co">#&gt; 2             NAMESPACE   text</span></span>
+<span><span class="co">#&gt; 3               NEWS.md   text</span></span>
+<span><span class="co">#&gt; 4             README.md   text</span></span>
+<span><span class="co">#&gt; 5              R/data.R   text</span></span>
+<span><span class="co">#&gt; 6             R/hello.R   text</span></span>
+<span><span class="co">#&gt; 7      R/pkg1-package.R   text</span></span>
+<span><span class="co">#&gt; 8         R/sysdata.rda binary</span></span>
+<span><span class="co">#&gt; 9        man/dataset.Rd   text</span></span>
+<span><span class="co">#&gt; 10   man/hello_world.Rd   text</span></span>
+<span><span class="co">#&gt; 11  man/pkg1-package.Rd   text</span></span>
+<span><span class="co">#&gt; 12 man/figures/logo.png binary</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -192,7 +192,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3. <br>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
+<p>Developed by Nan Xiao, Yilong Zhang, Keaven Anderson. Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6. <br>Copyright © Merck Sharp &amp; Dohme Corp., a subsidiary of Merck &amp; Co., Inc., Kenilworth, NJ, USA.</p>
 </div>
 
 <div class="pkgdown-footer-right">
