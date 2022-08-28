@@ -1,3 +1,14 @@
+# pkglite 0.2.1
+
+## Enhancements
+
+- The file extension dictionary is extended to include many more file types
+  used in R packages, such as `.stan` and `.brew` (#20, #34).
+- Removed cli dependency (#26).
+- Added independent testing for cli replacement functions (#29).
+- Use `stop(call. = FALSE)` (#19).
+- Run roxygen2 7.2.1 to generate valid HTML5 in Rd files (#35).
+
 # pkglite 0.2.0
 
 ## New features
