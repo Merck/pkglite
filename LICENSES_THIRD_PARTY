@@ -12,8 +12,8 @@ Third party R packages listed by License type
 --------------------------------------------------
 
 MIT / X11 License (or adaptations) (https://www.opensource.org/licenses/MIT)
-  * cli - https://cli.r-lib.org/LICENSE.html
+  * crayon - https://github.com/r-lib/crayon/blob/main/LICENSE
   * magrittr - https://magrittr.tidyverse.org/LICENSE.html
 
 GPL-2 | GPL-3 [expanded from: GPL (>=2)]
-	* remotes - https://remotes.r-lib.org/
+  * remotes - https://remotes.r-lib.org/

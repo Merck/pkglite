@@ -9,7 +9,7 @@ Authors@R: c(
     person("Amin", "Shirazi", role = "ctb"),
     person("Jeff", "Cheng", role = "ctb"),
     person("Danfeng", "Fu", role = "ctb"),
-    person("Merck Sharp & Dohme Corp", role = "cph")
+    person("Merck & Co., Inc., Rahway, NJ, USA and its affiliates", role = "cph")
     )
 Description: A tool, grammar, and standard to represent and exchange
     R package source code as text files. Converts one or more source

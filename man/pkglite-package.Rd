@@ -24,15 +24,16 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Yilong Zhang \email{yilong.zhang@merck.com}
+  \item Yilong Zhang
   \item Keaven Anderson \email{keaven_anderson@merck.com}
 }
 
 Other contributors:
 \itemize{
-  \item Amin Shirazi \email{amin.shirazi@merck.com} [contributor]
-  \item Jeff Cheng \email{jeff.cheng@merck.com} [contributor]
-  \item Merck Sharp & Dohme Corp [copyright holder]
+  \item Amin Shirazi [contributor]
+  \item Jeff Cheng [contributor]
+  \item Danfeng Fu [contributor]
+  \item Merck & Co., Inc., Rahway, NJ, USA and its affiliates [copyright holder]
 }
 
 }
