@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Xiao"
+  given-names: "Nan"
+  orcid: "https://orcid.org/0000-0002-0250-5673"
+- family-names: "Zhang"
+  given-names: "Yilong"
+- family-names: "Anderson"
+  given-names: "Keaven"
+title: "pkglite: Compact Package Representations"
+version: 0.2.1
+date-released: 2021-03-08
+url: "https://github.com/Merck/pkglite"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Zhao"
+    given-names: "Yujie"
+    orcid: "https://orcid.org/0000-0003-2896-4955"
+  - family-names: "Xiao"
+    given-names: "Nan"
+    orcid: "https://orcid.org/0000-0002-0250-5673"
+  - family-names: "Anderson"
+    given-names: "Keaven"
+  - family-names: "Zhang"
+    given-names: "Yilong"
+  doi: "10.1177/17407745221123244"
+  journal: "Clinical Trials"
+  title: "Electronic common technical document submission with analysis using R"
+  year: 2022
