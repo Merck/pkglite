@@ -60,3 +60,23 @@ Unpack one or more packages:
 "/path/to/pkglite.txt" %>%
   unpack(output = "/path/to/output/")
 ```
+
+## Citation
+
+If you use this software, please cite it as below.
+
+> Zhao, Y., Xiao, N., Anderson K., & Zhang Y. (2022).
+> Electronic common technical document submission with analysis using R.
+> _Clinical Trials_. https://doi.org/10.1177/17407745221123244
+
+A BibTeX entry for LaTeX users is
+
+```bibtex
+@article{zhao2022,
+  title = {Electronic common technical document submission with analysis using {R}},
+  author = {Zhao, Yujie and Xiao, Nan and Anderson, Keaven and Zhang, Yilong},
+  journal = {Clinical Trials},
+  year = {2022},
+  doi = {10.1177/17407745221123244}
+}
+```
