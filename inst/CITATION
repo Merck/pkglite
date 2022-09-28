@@ -1,0 +1,11 @@
+citHeader("If you use this software, please cite it as below.")
+
+citEntry(
+  entry = "Article",
+  title = "Electronic common technical document submission with analysis using R",
+  author = "Zhao, Yujie and Xiao, Nan and Anderson, Keaven and Zhang, Yilong",
+  journal = "Clinical Trials",
+  year = "2022",
+  doi = "10.1177/17407745221123244",
+  textVersion = "Zhao, Y., Xiao, N., Anderson K., & Zhang Y. (2022). Electronic common technical document submission with analysis using R. Clinical Trials. https://doi.org/10.1177/17407745221123244"
+)
