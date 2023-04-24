@@ -65,18 +65,22 @@ Unpack one or more packages:
 
 If you use this software, please cite it as below.
 
-> Zhao, Y., Xiao, N., Anderson K., & Zhang Y. (2022).
+> Zhao, Y., Xiao, N., Anderson, K., & Zhang, Y. (2023).
 > Electronic common technical document submission with analysis using R.
-> _Clinical Trials_. https://doi.org/10.1177/17407745221123244
+> _Clinical Trials_, **20**(1), 89--92.
+> https://doi.org/10.1177/17407745221123244
 
 A BibTeX entry for LaTeX users is
 
 ```bibtex
-@article{zhao2022,
-  title = {Electronic common technical document submission with analysis using {R}},
-  author = {Zhao, Yujie and Xiao, Nan and Anderson, Keaven and Zhang, Yilong},
+@article{zhao2023electronic,
+  title   = {Electronic common technical document submission with analysis using {R}},
+  author  = {Zhao, Yujie and Xiao, Nan and Anderson, Keaven and Zhang, Yilong},
   journal = {Clinical Trials},
-  year = {2022},
-  doi = {10.1177/17407745221123244}
+  volume  = {20},
+  number  = {1},
+  pages   = {89--92},
+  year    = {2023},
+  doi     = {10.1177/17407745221123244}
 }
 ```
