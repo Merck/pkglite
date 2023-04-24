@@ -25,7 +25,11 @@ preferred-citation:
     given-names: "Keaven"
   - family-names: "Zhang"
     given-names: "Yilong"
-  doi: "10.1177/17407745221123244"
-  journal: "Clinical Trials"
   title: "Electronic common technical document submission with analysis using R"
-  year: 2022
+  journal: "Clinical Trials"
+  year: 2023
+  volume: 20
+  issue: 1
+  start: 89
+  end: 92
+  doi: "10.1177/17407745221123244"
