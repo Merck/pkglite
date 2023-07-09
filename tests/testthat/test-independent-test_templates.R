@@ -13,13 +13,13 @@ file_spec_func_valid <- function() {
   )
 
   return(
-    fs_source$path == path
-    & fs_source$pattern == pattern
-    & fs_source$format == format
-    & fs_source$recursive == recursive
-    & fs_source$ignore_case == ignore_case
-    & fs_source$all_files == all_files
-    & class(fs_source) == "file_spec"
+    fs_source$path == path &
+      fs_source$pattern == pattern &
+      fs_source$format == format &
+      fs_source$recursive == recursive &
+      fs_source$ignore_case == ignore_case &
+      fs_source$all_files == all_files &
+      class(fs_source) == "file_spec"
   )
 }
 
@@ -35,8 +35,7 @@ fs_unlist <- function(fs) {
       if (class(x) == "file_spec") {
         ls_cnt <- ls_cnt + 1
         ls[[ls_cnt]] <- x
-      }
-      else if (class(x) == "list") {
+      } else if (class(x) == "list") {
         ls_tmp <- fs_unlist(x)
         for (j in seq_len(length(ls_tmp))) {
           ls_cnt <- ls_cnt + 1
@@ -50,13 +49,13 @@ fs_unlist <- function(fs) {
 
 # check if a file_spec object has all of the parameters as specified
 is_file_spec_type <- function(fs_source, path, pattern, format, recursive, ignore_case, all_files) {
-  return(fs_source$path == path
-  & fs_source$pattern == pattern
-  & fs_source$format == format
-  & fs_source$recursive == recursive
-  & fs_source$ignore_case == ignore_case
-  & fs_source$all_files == all_files
-  & class(fs_source) == "file_spec")
+  return(fs_source$path == path &
+    fs_source$pattern == pattern &
+    fs_source$format == format &
+    fs_source$recursive == recursive &
+    fs_source$ignore_case == ignore_case &
+    fs_source$all_files == all_files &
+    class(fs_source) == "file_spec")
 }
 
 testthat::test_that("file_root_core() creates the correct 'file_spec' object", {
@@ -110,8 +109,7 @@ testthat::test_that("file_r() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_code <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_data & is_file_spec_type(
           fs_source = fs,
           path = "R/",
@@ -155,8 +153,7 @@ testthat::test_that("file_man() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_rd <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_binary & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -168,8 +165,7 @@ testthat::test_that("file_man() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_fig_binary <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_text & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -242,8 +238,7 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
       )
       ) {
         is_spec_text <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
@@ -295,8 +290,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       )
       ) {
         is_root_core <- TRUE
-      }
-      else if (!is_spec_code & is_file_spec_type(
+      } else if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
         path = "R/",
         pattern = "\\.R$|\\.r$|\\.s$|\\.q$",
@@ -307,8 +301,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_code <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_data & is_file_spec_type(
           fs_source = fs,
           path = "R/",
@@ -320,8 +313,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_data <- TRUE
-      }
-      else if (!is_spec_rd & is_file_spec_type(
+      } else if (!is_spec_rd & is_file_spec_type(
         fs_source = fs,
         path = "man/",
         pattern = "\\.Rd$|\\.rd$",
@@ -332,8 +324,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_rd <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_binary & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -345,8 +336,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_fig_binary <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_text & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -358,8 +348,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_fig_text <- TRUE
-      }
-      else if
+      } else if
       (!is_src & is_file_spec_type(
           fs_source = fs,
           path = "src/",
@@ -371,9 +360,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
         )
       ) {
         is_src <- TRUE
-      }
-
-      else if (!is_spec_text & is_file_spec_type(
+      } else if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "vignettes/",
         pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.hpp$|\\.hxx$|\\.hh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.Rmd$|\\.md$|\\.csl$|\\.Rnw$|\\.tex$|\\.ltx$|\\.rsp$|\\.cls$|\\.sty$|\\.bib$|\\.bst$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.js$|\\.json$|\\.xml$|\\.scss$|\\.less$|\\.rtf$|\\.save$|\\.Rout$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.lua$|\\.rs$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gtf$",
@@ -384,8 +371,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_text <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "vignettes/",
@@ -397,8 +383,7 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_binary <- TRUE
-      }
-      else if
+      } else if
       (!is_data & is_file_spec_type(
           fs_source = fs,
           path = "data/",
@@ -457,8 +442,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       )
       ) {
         is_root_core <- TRUE
-      }
-      else if (!is_spec_code & is_file_spec_type(
+      } else if (!is_spec_code & is_file_spec_type(
         fs_source = fs,
         path = "R/",
         pattern = "\\.R$|\\.r$|\\.s$|\\.q$",
@@ -469,8 +453,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_code <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_data & is_file_spec_type(
           fs_source = fs,
           path = "R/",
@@ -482,8 +465,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_data <- TRUE
-      }
-      else if (!is_spec_rd & is_file_spec_type(
+      } else if (!is_spec_rd & is_file_spec_type(
         fs_source = fs,
         path = "man/",
         pattern = "\\.Rd$|\\.rd$",
@@ -494,8 +476,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_rd <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_binary & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -507,8 +488,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_fig_binary <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_fig_text & is_file_spec_type(
           fs_source = fs,
           path = "man/figures/",
@@ -520,8 +500,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
         )
       ) {
         is_spec_fig_text <- TRUE
-      }
-      else if
+      } else if
       (!is_src & is_file_spec_type(
           fs_source = fs,
           path = "src/",
@@ -533,8 +512,7 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
         )
       ) {
         is_src <- TRUE
-      }
-      else if
+      } else if
       (!is_data & is_file_spec_type(
           fs_source = fs,
           path = "data/",
@@ -581,8 +559,7 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
       )
       ) {
         is_spec_text <- TRUE
-      }
-      else if
+      } else if
       (!is_spec_binary & is_file_spec_type(
           fs_source = fs,
           path = "inst/",
