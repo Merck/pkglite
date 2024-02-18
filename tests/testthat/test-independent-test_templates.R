@@ -1,64 +1,4 @@
-# check if the file_spec() is returning the right object
-file_spec_func_valid <- function() {
-  path <- "R/"
-  pattern <- "\\.R$"
-  format <- "text"
-  recursive <- FALSE
-  ignore_case <- TRUE
-  all_files <- FALSE
-
-  fs_source <- file_spec(
-    path = path, pattern = pattern, format = format,
-    recursive = recursive, ignore_case = ignore_case, all_files = all_files
-  )
-
-  return(
-    fs_source$path == path &
-      fs_source$pattern == pattern &
-      fs_source$format == format &
-      fs_source$recursive == recursive &
-      fs_source$ignore_case == ignore_case &
-      fs_source$all_files == all_files &
-      class(fs_source) == "file_spec"
-  )
-}
-
-# flatten the structure of a file_spec list
-fs_unlist <- function(fs) {
-  fs_len <- length(fs)
-  ls <- list()
-  ls_cnt <- 0
-
-  if (fs_len) {
-    for (i in seq_len(fs_len)) {
-      x <- fs[[i]]
-      if (class(x) == "file_spec") {
-        ls_cnt <- ls_cnt + 1
-        ls[[ls_cnt]] <- x
-      } else if (class(x) == "list") {
-        ls_tmp <- fs_unlist(x)
-        for (j in seq_len(length(ls_tmp))) {
-          ls_cnt <- ls_cnt + 1
-          ls[[ls_cnt]] <- ls_tmp[[j]]
-        }
-      }
-    }
-  }
-  ls
-}
-
-# check if a file_spec object has all of the parameters as specified
-is_file_spec_type <- function(fs_source, path, pattern, format, recursive, ignore_case, all_files) {
-  return(fs_source$path == path &
-    fs_source$pattern == pattern &
-    fs_source$format == format &
-    fs_source$recursive == recursive &
-    fs_source$ignore_case == ignore_case &
-    fs_source$all_files == all_files &
-    class(fs_source) == "file_spec")
-}
-
-testthat::test_that("file_root_core() creates the correct 'file_spec' object", {
+test_that("file_root_core() creates the correct 'file_spec' object", {
   is_root_core <- is_file_spec_type(
     fs_source = file_root_core(),
     path = "",
@@ -69,11 +9,10 @@ testthat::test_that("file_root_core() creates the correct 'file_spec' object", {
     all_files = TRUE
   )
 
-  testthat::expect_equal(is_root_core, TRUE)
+  expect_equal(is_root_core, TRUE)
 })
 
-
-testthat::test_that("file_root_all() creates the correct 'file_spec' object", {
+test_that("file_root_all() creates the correct 'file_spec' object", {
   is_root_all <- is_file_spec_type(
     fs_source = file_root_all(),
     path = "",
@@ -84,11 +23,10 @@ testthat::test_that("file_root_all() creates the correct 'file_spec' object", {
     all_files = TRUE
   )
 
-  testthat::expect_equal(is_root_all, TRUE)
+  expect_equal(is_root_all, TRUE)
 })
 
-
-testthat::test_that("file_r() creates the correct 'file_spec' objects", {
+test_that("file_r() creates the correct 'file_spec' objects", {
   fs_source <- file_r()
   is_spec_code <- FALSE
   is_spec_data <- FALSE
@@ -125,12 +63,11 @@ testthat::test_that("file_r() creates the correct 'file_spec' objects", {
     }
   }
 
-  testthat::expect_equal(is_spec_code, TRUE)
-  testthat::expect_equal(is_spec_data, TRUE)
+  expect_equal(is_spec_code, TRUE)
+  expect_equal(is_spec_data, TRUE)
 })
 
-
-testthat::test_that("file_man() creates the correct 'file_spec' objects", {
+test_that("file_man() creates the correct 'file_spec' objects", {
   fs_source <- file_man()
 
   is_spec_rd <- FALSE
@@ -181,13 +118,12 @@ testthat::test_that("file_man() creates the correct 'file_spec' objects", {
     }
   }
 
-  testthat::expect_equal(is_spec_rd, TRUE)
-  testthat::expect_equal(is_spec_fig_binary, TRUE)
-  testthat::expect_equal(is_spec_fig_text, TRUE)
+  expect_equal(is_spec_rd, TRUE)
+  expect_equal(is_spec_fig_binary, TRUE)
+  expect_equal(is_spec_fig_text, TRUE)
 })
 
-
-testthat::test_that("file_src() creates the correct 'file_spec' object", {
+test_that("file_src() creates the correct 'file_spec' object", {
   is_src <- is_file_spec_type(
     fs_source = file_src(),
     path = "src/",
@@ -198,11 +134,10 @@ testthat::test_that("file_src() creates the correct 'file_spec' object", {
     all_files = FALSE
   )
 
-  testthat::expect_equal(is_src, TRUE)
+  expect_equal(is_src, TRUE)
 })
 
-
-testthat::test_that("file_data() creates the correct 'file_spec' object", {
+test_that("file_data() creates the correct 'file_spec' object", {
   is_data <- is_file_spec_type(
     fs_source = file_data(),
     path = "data/",
@@ -213,11 +148,10 @@ testthat::test_that("file_data() creates the correct 'file_spec' object", {
     all_files = FALSE
   )
 
-  testthat::expect_equal(is_data, TRUE)
+  expect_equal(is_data, TRUE)
 })
 
-
-testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", {
+test_that("file_vignettes() creates the correct 'file_spec' objects", {
   fs_source <- file_vignettes()
   is_spec_text <- FALSE
   is_spec_binary <- FALSE
@@ -254,12 +188,11 @@ testthat::test_that("file_vignettes() creates the correct 'file_spec' objects", 
     }
   }
 
-  testthat::expect_equal(is_spec_text, TRUE)
-  testthat::expect_equal(is_spec_binary, TRUE)
+  expect_equal(is_spec_text, TRUE)
+  expect_equal(is_spec_binary, TRUE)
 })
 
-
-testthat::test_that("file_default() creates the correct 'file_spec' objects", {
+test_that("file_default() creates the correct 'file_spec' objects", {
   fs_source <- file_default()
   # linearize the file_spec list
   fs_ls <- fs_unlist(fs_source)
@@ -400,20 +333,20 @@ testthat::test_that("file_default() creates the correct 'file_spec' objects", {
   }
 
 
-  testthat::expect_equal(is_root_core, TRUE)
-  testthat::expect_equal(is_spec_code, TRUE)
-  testthat::expect_equal(is_spec_data, TRUE)
-  testthat::expect_equal(is_spec_rd, TRUE)
-  testthat::expect_equal(is_spec_fig_binary, TRUE)
-  testthat::expect_equal(is_spec_fig_text, TRUE)
-  testthat::expect_equal(is_src, TRUE)
-  testthat::expect_equal(is_spec_text, TRUE)
-  testthat::expect_equal(is_spec_binary, TRUE)
-  testthat::expect_equal(is_data, TRUE)
+  expect_equal(is_root_core, TRUE)
+  expect_equal(is_spec_code, TRUE)
+  expect_equal(is_spec_data, TRUE)
+  expect_equal(is_spec_rd, TRUE)
+  expect_equal(is_spec_fig_binary, TRUE)
+  expect_equal(is_spec_fig_text, TRUE)
+  expect_equal(is_src, TRUE)
+  expect_equal(is_spec_text, TRUE)
+  expect_equal(is_spec_binary, TRUE)
+  expect_equal(is_data, TRUE)
 })
 
 
-testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
+test_that("file_ectd() creates the correct 'file_spec' objects", {
   fs_source <- file_ectd()
   # linearize the file_spec list
   fs_ls <- fs_unlist(fs_source)
@@ -528,17 +461,17 @@ testthat::test_that("file_ectd() creates the correct 'file_spec' objects", {
     }
   }
 
-  testthat::expect_equal(is_root_core, TRUE)
-  testthat::expect_equal(is_spec_code, TRUE)
-  testthat::expect_equal(is_spec_data, TRUE)
-  testthat::expect_equal(is_spec_rd, TRUE)
-  testthat::expect_equal(is_spec_fig_binary, TRUE)
-  testthat::expect_equal(is_spec_fig_text, TRUE)
-  testthat::expect_equal(is_src, TRUE)
-  testthat::expect_equal(is_data, TRUE)
+  expect_equal(is_root_core, TRUE)
+  expect_equal(is_spec_code, TRUE)
+  expect_equal(is_spec_data, TRUE)
+  expect_equal(is_spec_rd, TRUE)
+  expect_equal(is_spec_fig_binary, TRUE)
+  expect_equal(is_spec_fig_text, TRUE)
+  expect_equal(is_src, TRUE)
+  expect_equal(is_data, TRUE)
 })
 
-testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
+test_that("file_auto() creates the correct 'file_spec' objects", {
   fs_source <- file_auto("inst/")
   is_spec_text <- FALSE
   is_spec_binary <- FALSE
@@ -575,22 +508,22 @@ testthat::test_that("file_auto() creates the correct 'file_spec' objects", {
     }
   }
 
-  testthat::expect_equal(is_spec_text, TRUE)
-  testthat::expect_equal(is_spec_binary, TRUE)
+  expect_equal(is_spec_text, TRUE)
+  expect_equal(is_spec_binary, TRUE)
 })
 
-testthat::test_that("cat_patterns() generate the right string pattern", {
+test_that("cat_patterns() generate the right string pattern", {
   str <- c("x", "y", "z")
   str_target <- "x|y|z"
   str_source <- cat_patterns(str)
 
-  testthat::expect_equal(str_source, str_target)
+  expect_equal(str_source, str_target)
 })
 
-testthat::test_that("ends_with() generate the right string pattern", {
+test_that("ends_with() generate the right string pattern", {
   str <- c("x", "y", "z")
   str_target <- c("\\.x$", "\\.y$", "\\.z$")
   str_source <- ends_with(str)
 
-  testthat::expect_equal(str_source, str_target)
+  expect_equal(str_source, str_target)
 })
