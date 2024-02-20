@@ -1,5 +1,5 @@
 test_that("verify_ascii() should check if all texts in file are printable", {
-  # test binary
+  # Test binary
   out_bin <- c(
     "fa\xE7ile test of showNonASCII():",
     "\\details{",
@@ -11,7 +11,7 @@ test_that("verify_ascii() should check if all texts in file are printable", {
   f_bin <- tempfile()
   cat(out_bin, file = f_bin, sep = "\n")
 
-  # test text
+  # Test text
   out_txt <- c(
     "Just simple texts",
     "very simple :)",
@@ -52,9 +52,9 @@ test_that("remove_content() removing specified target line (must be indented by 
   t_ln_cleaned <- as.logical(sum(!is.na(match(cleaned, target_ln))))
   t_str_cleaned <- as.logical(sum(!is.na(match(cleaned, target_str))))
 
-  # non-content target kept?
+  # Non-content target kept?
   expect_equal(t_str_cleaned, TRUE)
-  # content targets kept ?
+  # Content targets kept ?
   expect_equal(t_ln_cleaned, FALSE)
 
   unlink(f_txt)
