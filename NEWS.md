@@ -1,3 +1,10 @@
+# pkglite 0.2.2
+
+## Enhancements
+
+- Move previous test logic that has "test file scope" into
+  `tests/testthat/helper.R` to follow best practices (#45).
+
 # pkglite 0.2.1
 
 ## Enhancements
