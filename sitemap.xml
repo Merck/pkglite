@@ -1,105 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://merck.github.io/pkglite/404.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/articles/filecollection.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/articles/filespec.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/articles/format.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/articles/pkglite.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/index.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/collate.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/ext_binary.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/ext_text.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_auto.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_default.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_ectd.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_name_patterns.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/file_spec_templates.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/is_file_collection.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/is_file_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/merge.file_collection.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/pack.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/pkglite-package.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/print.file_collection.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/print.file_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/prune.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/remove_content.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/sanitize.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/sanitize_file_collection.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/unpack.html</loc>
-  </url>
-  <url>
-    <loc>https://merck.github.io/pkglite/reference/verify_ascii.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://merck.github.io/pkglite/404.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/LICENSE-text.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/articles/filecollection.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/articles/filespec.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/articles/format.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/articles/index.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/articles/pkglite.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/authors.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/index.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/news/index.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/collate.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/ext_binary.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/ext_text.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_auto.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_default.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_ectd.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_name_patterns.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_spec.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/file_spec_templates.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/index.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/is_file_collection.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/is_file_spec.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/merge.file_collection.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/pack.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/pipe.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/pkglite-package.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/print.file_collection.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/print.file_spec.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/prune.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/remove_content.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/sanitize.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/sanitize_file_collection.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/unpack.html</loc></url>
+<url><loc>https://merck.github.io/pkglite/reference/verify_ascii.html</loc></url>
 </urlset>
+
