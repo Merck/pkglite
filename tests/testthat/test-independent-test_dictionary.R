@@ -4,27 +4,42 @@ test_that("Test ext_text() generate the right string list", {
     "man" = c("Rd", "rd"),
     "manfigures" = c("svg"),
     "src" = c(
-      "c", "h", "cpp", "cc", "hpp", "hxx", "hh",
+      "c", "h", "cpp", "cc", "ipp", "cxx", "hpp", "hxx", "hh", "cu", "cuh",
       "f", "f90", "f95", "f03",
-      "win", "in", "ucrt", "ac"
+      "win", "in", "ucrt", "ac", "mk", "guess"
     ),
     "vignette" = c(
-      "Rmd", "md", "csl", "Rnw", "tex", "ltx", "rsp", "cls", "sty",
-      "bib", "bst", "asis", "el"
+      "Rmd", "qmd", "orig", "md", "tex", "csl", "Rnw", "Snw", "Rtex", "Stex",
+      "rsp", "Rasciidoc", "Rhtml", "lyx", "ltx", "dtx", "cls", "sty", "aux",
+      "bib", "bibtex", "bst", "bbl", "asis", "el"
     ),
-    "meta" = c("Rproj", "dcf", "yml", "yaml", "note"),
+    "meta" = c("Rproj", "dcf", "yml", "yaml", "toml", "note"),
     "table" = c("csv", "tsv", "txt"),
-    "figure" = c("svg"),
-    "web" = c("html", "htm", "shtml", "css", "js", "json", "xml", "scss", "less"),
+    "figure" = c("svg", "ps", "dot", "drawio"),
+    "web" = c(
+      "html", "htm", "shtml", "css", "scss", "sass", "less",
+      "js", "cjs", "mjs", "jsx", "wasm",
+      "json", "ndjson", "jsonl", "jsonld", "json5", "topojson",
+      "xml", "xsd", "xsl", "xslt", "dtd"
+    ),
     "doc" = c("rtf"),
-    "log" = c("save", "Rout"),
+    "log" = c("save", "Rout", "log"),
     "proglang" = c(
       "stan", "bug", "jags", "py", "ipynb", "sh", "java", "bat", "m4", "cmake",
-      "sql", "lua", "rs", "jl", "pl", "pm", "brew"
+      "sql", "graphql", "lua", "rs", "lock", "jl", "pl", "pm", "brew",
+      "scala", "awk", "rb", "sas", "m", "asm"
     ),
     "gettext" = c("po", "pot"),
     "geo" = c("geojson", "kml", "prj", "cpg", "qpj"),
-    "bio" = c("fasta", "fastq", "vcf", "ped", "bim", "fam", "gff", "gtf")
+    "bio" = c(
+      "fasta", "fas", "fa", "faa", "fai",
+      "fastq", "vcf", "ped", "bim", "fam", "gff", "gff3", "gtf"
+    ),
+    "generic" = c(
+      "markdown", "rst", "typ",
+      "ini", "conf", "slurm", "ris", "cff",
+      "fwf", "arff", "graphml", "gexf"
+    )
   )
 
   ls_target <- str_ls
@@ -44,22 +59,27 @@ test_that("Test ext_binary() generate the right string list", {
     "figure" = c(
       "png", "jpg", "jpeg", "bmp", "gif", "tif", "tiff", "emf", "svgz",
       "ico", "webp", "eps", "pdf",
-      "ppm", "pgm", "pbm", "pnm"
+      "ppm", "pgm", "pbm", "pnm",
+      "xcf", "psd", "graffle"
     ),
     "src" = c("o", "so"),
     "build" = c("rdb", "rdx"),
     "web" = c("woff2", "woff", "otf", "ttf", "eot"),
-    "mso" = c("docx", "xlsx", "pptx", "xltx", "potx", "doc", "xls", "ppt"),
+    "mso" = c("docx", "xlsx", "pptx", "xltx", "potx", "doc", "xls", "ppt", "xlsb", "xlsm"),
     "odf" = c("odt", "ods", "odp", "odg", "odc", "odf", "odi", "odm", "odb"),
     "sas" = c("sas7bdat", "sas7bcat", "xpt", "xpt5", "xpt8"),
     "archive" = c("zip", "tar", "gz", "tgz", "bz2", "7z", "xz"),
-    "db" = c("sqlite", "sqlite3"),
+    "db" = c("sqlite", "sqlite3", "dbf", "accdb", "mdb"),
     "proglang" = c("pyc", "jar"),
     "gettext" = c("mo"),
     "geo" = c("shx", "shp", "laz", "sbx", "sbn", "nc", "gpkg"),
     "bio" = c("bam", "bai"),
     "audio" = c("wav", "mp3", "mid", "ogg", "au", "m4a"),
-    "video" = c("mp4", "avi", "mov", "mkv", "webm")
+    "video" = c("mp4", "avi", "mov", "mkv", "webm"),
+    "generic" = c(
+      "bin", "epub", "h5", "hdf5", "onnx",
+      "parquet", "feather", "pkl", "npy"
+    )
   )
 
   ls_target <- str_ls
