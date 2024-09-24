@@ -1,5 +1,6 @@
 bibentry(
   "Article",
+  key = "zhao2023electronic",
   title = "Electronic common technical document submission with analysis using {R}",
   author = "Yujie Zhao and Nan Xiao and Keaven Anderson and Yilong Zhang",
   journal = "Clinical Trials",
