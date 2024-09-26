@@ -1,10 +1,9 @@
-test_that("is_file_collection detects whether an object is of class
-                    file collection", {
+test_that("is_file_collection detects whether an object is of class file collection", {
   pkg <- "pkg1"
   expect_false(
     pkg %>%
       find_package() %>%
-      fs_to_df(file_spec = file_src()) %>%
+      fs_to_df(file_spec = file_src()[[2]]) %>%
       is_file_collection()
   )
 })
