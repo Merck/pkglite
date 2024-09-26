@@ -4,12 +4,15 @@
 \alias{file_name_patterns}
 \alias{pattern_file_root_core}
 \alias{pattern_file_root_all}
+\alias{pattern_file_src}
 \alias{pattern_file_sanitize}
 \title{Common File name patterns}
 \usage{
 pattern_file_root_core()
 
 pattern_file_root_all()
+
+pattern_file_src()
 
 pattern_file_sanitize()
 }
