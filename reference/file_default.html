@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">pkglite</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>File specification (default combination)</h1>
-      <small class="dont-index">Source: <a href="https://github.com/Merck/pkglite/blob/v0.2.3/R/templates.R" class="external-link"><code>R/templates.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Merck/pkglite/blob/master/R/templates.R" class="external-link"><code>R/templates.R</code></a></small>
       <div class="d-none name"><code>file_default.Rd</code></div>
     </div>
 
@@ -65,7 +65,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File specification </span><span style="color: #00BBBB;">----------------------------------------------------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Relative path: <span style="color: #0000BB;">""</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ucrt$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$|^cleanup\\.ucrt$"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Format: <span style="color: #0000BB;">"text"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Recursive: <span style="color: #0000BB;">FALSE</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Ignore case: <span style="color: #0000BB;">FALSE</span></span>
@@ -121,19 +121,30 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[4]][[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File specification </span><span style="color: #00BBBB;">----------------------------------------------------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Relative path: <span style="color: #0000BB;">"src/"</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"^Makevars$|^Makevars\\.win$|^Makevars\\.ucrt$|^Makefile$|^Makefile\\.win$|^Makefile\\.ucrt$|^CMakeLists\\.txt$"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Format: <span style="color: #0000BB;">"text"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Recursive: <span style="color: #0000BB;">TRUE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Ignore case: <span style="color: #0000BB;">FALSE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - All files: <span style="color: #0000BB;">FALSE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[4]][[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File specification </span><span style="color: #00BBBB;">----------------------------------------------------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Relative path: <span style="color: #0000BB;">"src/"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Format: <span style="color: #0000BB;">"text"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Recursive: <span style="color: #0000BB;">TRUE</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Ignore case: <span style="color: #0000BB;">TRUE</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - All files: <span style="color: #0000BB;">FALSE</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[5]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[5]][[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">-- </span><span style="font-weight: bold;">File specification </span><span style="color: #00BBBB;">----------------------------------------------------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Relative path: <span style="color: #0000BB;">"vignettes/"</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - Pattern: <span style="color: #0000BB;">"\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Format: <span style="color: #0000BB;">"text"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Recursive: <span style="color: #0000BB;">TRUE</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - Ignore case: <span style="color: #0000BB;">TRUE</span></span>
