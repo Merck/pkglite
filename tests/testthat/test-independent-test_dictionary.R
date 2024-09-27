@@ -6,7 +6,7 @@ test_that("Test ext_text() generate the right string list", {
     "src" = c(
       "c", "h", "cpp", "cc", "ipp", "cxx", "hpp", "hxx", "hh", "cu", "cuh",
       "f", "f90", "f95", "f03",
-      "win", "in", "ucrt", "ac", "mk", "guess"
+      "win", "ucrt", "in", "ac", "mk", "guess", "def"
     ),
     "vignette" = c(
       "Rmd", "qmd", "orig", "md", "tex", "csl", "Rnw", "Snw", "Rtex", "Stex",
@@ -109,10 +109,12 @@ test_that("Test pattern_file_root_core() generate the right string list", {
     "\\.Rinstignore$",
     "^configure$",
     "^configure\\.win$",
+    "^configure\\.ucrt$",
     "^configure\\.ac$",
     "^configure\\.in$",
     "^cleanup$",
-    "^cleanup\\.win$"
+    "^cleanup\\.win$",
+    "^cleanup\\.ucrt$"
   )
 
   ls_target <- str_ls

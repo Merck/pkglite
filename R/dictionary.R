@@ -41,7 +41,7 @@ ext_text <- function(flat = FALSE) {
     "src" = c(
       "c", "h", "cpp", "cc", "ipp", "cxx", "hpp", "hxx", "hh", "cu", "cuh",
       "f", "f90", "f95", "f03",
-      "win", "in", "ucrt", "ac", "mk", "guess"
+      "win", "ucrt", "in", "ac", "mk", "guess", "def"
     ),
     "vignette" = c(
       "Rmd", "qmd", "orig", "md", "tex", "csl", "Rnw", "Snw", "Rtex", "Stex",
@@ -165,10 +165,12 @@ pattern_file_root_core <- function() {
     "\\.Rinstignore$",
     "^configure$",
     "^configure\\.win$",
+    "^configure\\.ucrt$",
     "^configure\\.ac$",
     "^configure\\.in$",
     "^cleanup$",
-    "^cleanup\\.win$"
+    "^cleanup\\.win$",
+    "^cleanup\\.ucrt$"
   )
 }
 
@@ -185,6 +187,20 @@ pattern_file_root_all <- function() {
     "^configure$",
     "^cleanup$",
     "*[.]"
+  )
+}
+
+#' @rdname file_name_patterns
+#' @export pattern_file_src
+pattern_file_src <- function() {
+  c(
+    "^Makevars$",
+    "^Makevars\\.win$",
+    "^Makevars\\.ucrt$",
+    "^Makefile$",
+    "^Makefile\\.win$",
+    "^Makefile\\.ucrt$",
+    "^CMakeLists\\.txt$"
   )
 }
 

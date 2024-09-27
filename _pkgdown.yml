@@ -73,6 +73,7 @@ reference:
       - ext_binary
       - pattern_file_root_core
       - pattern_file_root_all
+      - pattern_file_src
       - pattern_file_sanitize
   - title: "Deprecated"
     desc: "Deprecated functions that will be removed"

@@ -2,7 +2,7 @@ test_that("file_root_core() creates the correct 'file_spec' object", {
   is_root_core <- is_file_spec_type(
     fs_source = file_root_core(),
     path = "",
-    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
+    pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ucrt$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$|^cleanup\\.ucrt$",
     format = "text",
     recursive = FALSE,
     ignore_case = FALSE,
@@ -124,17 +124,28 @@ test_that("file_man() creates the correct 'file_spec' objects", {
 })
 
 test_that("file_src() creates the correct 'file_spec' object", {
-  is_src <- is_file_spec_type(
-    fs_source = file_src(),
+  is_spec_src_make <- is_file_spec_type(
+    fs_source = file_src()[[1]],
     path = "src/",
-    pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$",
+    pattern = "^Makevars$|^Makevars\\.win$|^Makevars\\.ucrt$|^Makefile$|^Makefile\\.win$|^Makefile\\.ucrt$|^CMakeLists\\.txt$",
+    format = "text",
+    recursive = TRUE,
+    ignore_case = FALSE,
+    all_files = FALSE
+  )
+
+  is_spec_src_src <- is_file_spec_type(
+    fs_source = file_src()[[2]],
+    path = "src/",
+    pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$",
     format = "text",
     recursive = TRUE,
     ignore_case = TRUE,
     all_files = FALSE
   )
 
-  expect_equal(is_src, TRUE)
+  expect_equal(is_spec_src_make, TRUE)
+  expect_equal(is_spec_src_src, TRUE)
 })
 
 test_that("file_data() creates the correct 'file_spec' object", {
@@ -164,7 +175,7 @@ test_that("file_vignettes() creates the correct 'file_spec' objects", {
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "vignettes/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,
@@ -202,20 +213,21 @@ test_that("file_default() creates the correct 'file_spec' objects", {
   is_spec_rd <- FALSE
   is_spec_fig_binary <- FALSE
   is_spec_fig_text <- FALSE
-  is_src <- FALSE
+  is_spec_src_make <- FALSE
+  is_spec_src_src <- FALSE
   is_spec_text <- FALSE
   is_spec_binary <- FALSE
   is_data <- FALSE
 
   fs_len <- length(fs_ls)
 
-  if (fs_len == 10) {
+  if (fs_len == 11) {
     for (i in seq_len(fs_len)) {
       fs <- fs_ls[[i]]
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
         path = "",
-        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
+        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ucrt$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$|^cleanup\\.ucrt$",
         format = "text",
         recursive = FALSE,
         ignore_case = FALSE,
@@ -282,21 +294,33 @@ test_that("file_default() creates the correct 'file_spec' objects", {
       ) {
         is_spec_fig_text <- TRUE
       } else if
-      (!is_src & is_file_spec_type(
+      (!is_spec_src_make & is_file_spec_type(
           fs_source = fs,
           path = "src/",
-          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$",
+          pattern = "^Makevars$|^Makevars\\.win$|^Makevars\\.ucrt$|^Makefile$|^Makefile\\.win$|^Makefile\\.ucrt$|^CMakeLists\\.txt$",
+          format = "text",
+          recursive = TRUE,
+          ignore_case = FALSE,
+          all_files = FALSE
+        )
+      ) {
+        is_spec_src_make <- TRUE
+      } else if
+      (!is_spec_src_src & is_file_spec_type(
+          fs_source = fs,
+          path = "src/",
+          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$",
           format = "text",
           recursive = TRUE,
           ignore_case = TRUE,
           all_files = FALSE
         )
       ) {
-        is_src <- TRUE
+        is_spec_src_src <- TRUE
       } else if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "vignettes/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,
@@ -332,14 +356,14 @@ test_that("file_default() creates the correct 'file_spec' objects", {
     }
   }
 
-
   expect_equal(is_root_core, TRUE)
   expect_equal(is_spec_code, TRUE)
   expect_equal(is_spec_data, TRUE)
   expect_equal(is_spec_rd, TRUE)
   expect_equal(is_spec_fig_binary, TRUE)
   expect_equal(is_spec_fig_text, TRUE)
-  expect_equal(is_src, TRUE)
+  expect_equal(is_spec_src_make, TRUE)
+  expect_equal(is_spec_src_src, TRUE)
   expect_equal(is_spec_text, TRUE)
   expect_equal(is_spec_binary, TRUE)
   expect_equal(is_data, TRUE)
@@ -356,18 +380,19 @@ test_that("file_ectd() creates the correct 'file_spec' objects", {
   is_spec_rd <- FALSE
   is_spec_fig_binary <- FALSE
   is_spec_fig_text <- FALSE
-  is_src <- FALSE
+  is_spec_src_make <- FALSE
+  is_spec_src_src <- FALSE
   is_data <- FALSE
 
   fs_len <- length(fs_ls)
 
-  if (fs_len == 8) {
+  if (fs_len == 9) {
     for (i in seq_len(fs_len)) {
       fs <- fs_ls[[i]]
       if (!is_root_core & is_file_spec_type(
         fs_source = fs,
         path = "",
-        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$",
+        pattern = "^DESCRIPTION$|^NAMESPACE$|^README$|^README\\.Rmd$|^README\\.md$|^NEWS$|^NEWS\\.md$|^LICENSE$|^LICENCE$|^LICENSE\\.note$|^LICENCE\\.note$|\\.Rbuildignore$|\\.Rinstignore$|^configure$|^configure\\.win$|^configure\\.ucrt$|^configure\\.ac$|^configure\\.in$|^cleanup$|^cleanup\\.win$|^cleanup\\.ucrt$",
         format = "text",
         recursive = FALSE,
         ignore_case = FALSE,
@@ -434,17 +459,29 @@ test_that("file_ectd() creates the correct 'file_spec' objects", {
       ) {
         is_spec_fig_text <- TRUE
       } else if
-      (!is_src & is_file_spec_type(
+      (!is_spec_src_make & is_file_spec_type(
           fs_source = fs,
           path = "src/",
-          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$",
+          pattern = "^Makevars$|^Makevars\\.win$|^Makevars\\.ucrt$|^Makefile$|^Makefile\\.win$|^Makefile\\.ucrt$|^CMakeLists\\.txt$",
+          format = "text",
+          recursive = TRUE,
+          ignore_case = FALSE,
+          all_files = FALSE
+        )
+      ) {
+        is_spec_src_make <- TRUE
+      } else if
+      (!is_spec_src_src & is_file_spec_type(
+          fs_source = fs,
+          path = "src/",
+          pattern = "\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$",
           format = "text",
           recursive = TRUE,
           ignore_case = TRUE,
           all_files = FALSE
         )
       ) {
-        is_src <- TRUE
+        is_spec_src_src <- TRUE
       } else if
       (!is_data & is_file_spec_type(
           fs_source = fs,
@@ -467,7 +504,8 @@ test_that("file_ectd() creates the correct 'file_spec' objects", {
   expect_equal(is_spec_rd, TRUE)
   expect_equal(is_spec_fig_binary, TRUE)
   expect_equal(is_spec_fig_text, TRUE)
-  expect_equal(is_src, TRUE)
+  expect_equal(is_spec_src_make, TRUE)
+  expect_equal(is_spec_src_src, TRUE)
   expect_equal(is_data, TRUE)
 })
 
@@ -484,7 +522,7 @@ test_that("file_auto() creates the correct 'file_spec' objects", {
       if (!is_spec_text & is_file_spec_type(
         fs_source = fs,
         path = "inst/",
-        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.in$|\\.ucrt$|\\.ac$|\\.mk$|\\.guess$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
+        pattern = "\\.R$|\\.r$|\\.s$|\\.q$|\\.Rd$|\\.rd$|\\.svg$|\\.c$|\\.h$|\\.cpp$|\\.cc$|\\.ipp$|\\.cxx$|\\.hpp$|\\.hxx$|\\.hh$|\\.cu$|\\.cuh$|\\.f$|\\.f90$|\\.f95$|\\.f03$|\\.win$|\\.ucrt$|\\.in$|\\.ac$|\\.mk$|\\.guess$|\\.def$|\\.Rmd$|\\.qmd$|\\.orig$|\\.md$|\\.tex$|\\.csl$|\\.Rnw$|\\.Snw$|\\.Rtex$|\\.Stex$|\\.rsp$|\\.Rasciidoc$|\\.Rhtml$|\\.lyx$|\\.ltx$|\\.dtx$|\\.cls$|\\.sty$|\\.aux$|\\.bib$|\\.bibtex$|\\.bst$|\\.bbl$|\\.asis$|\\.el$|\\.Rproj$|\\.dcf$|\\.yml$|\\.yaml$|\\.toml$|\\.note$|\\.csv$|\\.tsv$|\\.txt$|\\.ps$|\\.dot$|\\.drawio$|\\.html$|\\.htm$|\\.shtml$|\\.css$|\\.scss$|\\.sass$|\\.less$|\\.js$|\\.cjs$|\\.mjs$|\\.jsx$|\\.wasm$|\\.json$|\\.ndjson$|\\.jsonl$|\\.jsonld$|\\.json5$|\\.topojson$|\\.xml$|\\.xsd$|\\.xsl$|\\.xslt$|\\.dtd$|\\.rtf$|\\.save$|\\.Rout$|\\.log$|\\.stan$|\\.bug$|\\.jags$|\\.py$|\\.ipynb$|\\.sh$|\\.java$|\\.bat$|\\.m4$|\\.cmake$|\\.sql$|\\.graphql$|\\.lua$|\\.rs$|\\.lock$|\\.jl$|\\.pl$|\\.pm$|\\.brew$|\\.scala$|\\.awk$|\\.rb$|\\.sas$|\\.m$|\\.asm$|\\.po$|\\.pot$|\\.geojson$|\\.kml$|\\.prj$|\\.cpg$|\\.qpj$|\\.fasta$|\\.fas$|\\.fa$|\\.faa$|\\.fai$|\\.fastq$|\\.vcf$|\\.ped$|\\.bim$|\\.fam$|\\.gff$|\\.gff3$|\\.gtf$|\\.markdown$|\\.rst$|\\.typ$|\\.ini$|\\.conf$|\\.slurm$|\\.ris$|\\.cff$|\\.fwf$|\\.arff$|\\.graphml$|\\.gexf$",
         format = "text",
         recursive = TRUE,
         ignore_case = TRUE,

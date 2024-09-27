@@ -99,10 +99,17 @@ file_man <- function() {
 #' @rdname file_spec_templates
 #' @export file_src
 file_src <- function() {
-  file_spec(
+  spec_make <- file_spec(
+    path = "src/", pattern = cat_patterns(pattern_file_src()),
+    format = c("text"), recursive = TRUE, ignore_case = FALSE, all_files = FALSE
+  )
+
+  spec_src <- file_spec(
     path = "src/", pattern = cat_patterns(ends_with(ext_text()$"src")),
     format = c("text"), recursive = TRUE, ignore_case = TRUE, all_files = FALSE
   )
+
+  list(spec_make, spec_src)
 }
 
 #' @rdname file_spec_templates

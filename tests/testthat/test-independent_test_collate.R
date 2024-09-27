@@ -72,7 +72,7 @@ test_that("fs_to_df returns 0-row data when the file spec is not in the right fo
   pkg <- "pkg1"
   files <- pkg %>%
     find_package() %>%
-    fs_to_df(file_src())
+    fs_to_df(file_src()[[2]])
   expect_equal(nrow(files), 0L)
 })
 
