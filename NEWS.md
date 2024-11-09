@@ -1,4 +1,4 @@
-# pkglite 0.2.3.9000
+# pkglite 0.2.3.9001
 
 ## Enhancements
 
@@ -6,6 +6,8 @@
   This helps identifying the correct file collections for R packages
   with `src/Makevars` or `src/Makefile`, for example, packages that
   interface with Stan via the rstan package (#56).
+- Expand the binary file extension dictionary to cover files
+  frequently used in machine learning frameworks (#57).
 
 # pkglite 0.2.3
 
