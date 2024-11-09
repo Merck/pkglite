@@ -1,4 +1,4 @@
-# pkglite 0.2.3.9001
+# pkglite 0.2.4
 
 ## Enhancements
 
