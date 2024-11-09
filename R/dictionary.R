@@ -122,8 +122,9 @@ ext_binary <- function(flat = FALSE) {
     "audio" = c("wav", "mp3", "mid", "ogg", "au", "m4a"),
     "video" = c("mp4", "avi", "mov", "mkv", "webm"),
     "generic" = c(
-      "bin", "epub", "h5", "hdf5", "onnx",
-      "parquet", "feather", "pkl", "npy"
+      "bin", "epub", "hdf5", "h5", "parquet", "feather", "msgpack",
+      "pickle", "pkl", "npy", "npz", "safetensors",
+      "pt", "pth", "keras", "tfrecord", "pb", "ckpt", "onnx"
     )
   )
   if (flat) unique(unlist(x)) else x
