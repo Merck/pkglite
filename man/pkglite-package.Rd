@@ -20,10 +20,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Nan Xiao \email{nan.xiao1@merck.com} (\href{https://orcid.org/0000-0002-0250-5673}{ORCID})
+\strong{Maintainer}: Benjamin Wang \email{benjamin.wang@merck.com}
 
 Authors:
 \itemize{
+  \item Nan Xiao (\href{https://orcid.org/0000-0002-0250-5673}{ORCID})
   \item Yilong Zhang
   \item Keaven Anderson \email{keaven_anderson@merck.com}
 }
