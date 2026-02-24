@@ -3,6 +3,7 @@
 ## Maintenance
 
 - Update maintainer email (#61).
+- Update GitHub Actions workflows to the latest versions (#61).
 
 # pkglite 0.2.4
 
