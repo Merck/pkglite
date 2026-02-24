@@ -22,7 +22,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/Merck/pkglite/blob/v0.2.5/inst/CITATION)
+[`inst/CITATION`](https://github.com/Merck/pkglite/blob/master/inst/CITATION)
 
 Zhao Y, Xiao N, Anderson K, Zhang Y (2023). “Electronic common technical
 document submission with analysis using R.” *Clinical Trials*,

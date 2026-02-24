@@ -2,6 +2,8 @@
 
 ## pkglite 0.2.5
 
+CRAN release: 2026-02-24
+
 ### Maintenance
 
 - Update maintainer email
