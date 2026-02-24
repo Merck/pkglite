@@ -1,12 +1,12 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   filecollection: filecollection.html
   filespec: filespec.html
   format: format.html
   pkglite: pkglite.html
-last_built: 2024-11-09T21:36Z
+last_built: 2026-02-24T05:00Z
 urls:
   reference: https://merck.github.io/pkglite/reference
   article: https://merck.github.io/pkglite/articles
