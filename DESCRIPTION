@@ -1,14 +1,14 @@
 Package: pkglite
 Title: Compact Package Representations
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: c(
-    person("Nan", "Xiao", email = "nan.xiao1@merck.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-0250-5673")),
+    person("Nan", "Xiao", role = c("aut"), comment = c(ORCID = "0000-0002-0250-5673")),
     person("Yilong", "Zhang", role = "aut"),
     person("Keaven", "Anderson", email = "keaven_anderson@merck.com", role = "aut"),
     person("Amin", "Shirazi", role = "ctb"),
     person("Jeff", "Cheng", role = "ctb"),
     person("Danfeng", "Fu", role = "ctb"),
+    person("Benjamin", "Wang", email = "benjamin.wang@merck.com", role = c("aut", "cre")),
     person("Merck & Co., Inc., Rahway, NJ, USA and its affiliates", role = "cph")
     )
 Description: A tool, grammar, and standard to represent and exchange
@@ -30,4 +30,4 @@ Suggests:
     rmarkdown,
     testthat
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
