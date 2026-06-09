@@ -8,7 +8,8 @@ Authors@R: c(
     person("Amin", "Shirazi", role = "ctb"),
     person("Jeff", "Cheng", role = "ctb"),
     person("Danfeng", "Fu", role = "ctb"),
-    person("Benjamin", "Wang", email = "benjamin.wang@merck.com", role = c("aut", "cre")),
+    person("Benjamin", "Wang", role = "aut"),
+    person("Dickson", "Wanjau", email = "dickson.wanjau@merck.com", role = c("aut", "cre")),
     person("Merck & Co., Inc., Rahway, NJ, USA and its affiliates", role = "cph")
     )
 Description: A tool, grammar, and standard to represent and exchange

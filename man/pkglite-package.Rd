@@ -20,13 +20,14 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Benjamin Wang \email{benjamin.wang@merck.com}
+\strong{Maintainer}: Dickson Wanjau \email{dickson.wanjau@merck.com}
 
 Authors:
 \itemize{
   \item Nan Xiao (\href{https://orcid.org/0000-0002-0250-5673}{ORCID})
   \item Yilong Zhang
   \item Keaven Anderson \email{keaven_anderson@merck.com}
+  \item Benjamin Wang
 }
 
 Other contributors:
