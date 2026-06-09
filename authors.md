@@ -14,7 +14,9 @@
 
 - **Danfeng Fu**. Contributor.
 
-- **Benjamin Wang**. Author, maintainer.
+- **Benjamin Wang**. Author.
+
+- **Dickson Wanjau**. Author, maintainer.
 
 - **Merck & Co., Inc., Rahway, NJ, USA and its affiliates**. Copyright
   holder.

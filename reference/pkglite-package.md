@@ -16,7 +16,7 @@ Useful links:
 
 ## Author
 
-**Maintainer**: Benjamin Wang <benjamin.wang@merck.com>
+**Maintainer**: Dickson Wanjau <dickson.wanjau@merck.com>
 
 Authors:
 
@@ -25,6 +25,8 @@ Authors:
 - Yilong Zhang
 
 - Keaven Anderson <keaven_anderson@merck.com>
+
+- Benjamin Wang
 
 Other contributors:
 

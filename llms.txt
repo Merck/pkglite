@@ -18,24 +18,28 @@ and restores the package structures from the file.
 You can install the package via CRAN:
 
 ``` r
+
 install.packages("pkglite")
 ```
 
 Or, install from GitHub:
 
 ``` r
+
 remotes::install_github("Merck/pkglite")
 ```
 
 ## Workflow
 
 ``` r
+
 library("pkglite")
 ```
 
 Pack one R package:
 
 ``` r
+
 "/path/to/package/" %>%
   collate(file_default()) %>%
   pack()
@@ -44,6 +48,7 @@ Pack one R package:
 Pack multiple R packages:
 
 ``` r
+
 pack(
   "/path/to/pkg1/" %>% collate(file_default()),
   "/path/to/pkg2/" %>% collate(file_default()),
@@ -54,6 +59,7 @@ pack(
 Unpack one or more packages:
 
 ``` r
+
 "/path/to/pkglite.txt" %>%
   unpack(output = "/path/to/output/")
 ```

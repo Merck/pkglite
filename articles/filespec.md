@@ -5,6 +5,7 @@ package. We will discuss how to write file specifications and use them
 to create a file collection.
 
 ``` r
+
 library("pkglite")
 ```
 
@@ -18,6 +19,7 @@ to create a file specification.
 For example, to match the `.R` files under the `R/` folder, use
 
 ``` r
+
 fs <- file_spec(
   "R/",
   pattern = "\\.R$", format = "text",
@@ -43,10 +45,12 @@ matching files. Use
 create a file collection:
 
 ``` r
+
 pkg <- system.file("examples/pkg1/", package = "pkglite")
 ```
 
 ``` r
+
 pkg %>% collate(fs)
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -70,6 +74,7 @@ To generate a file collection that includes a core set of files under
 the package root, use
 
 ``` r
+
 pkg %>% collate(file_root_core())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -83,6 +88,7 @@ pkg %>% collate(file_root_core())
 To include all files under the package root, use
 
 ``` r
+
 pkg %>% collate(file_root_all())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -98,6 +104,7 @@ We can feed one or more file specifications to
 union of the matched files will be returned:
 
 ``` r
+
 pkg %>% collate(file_r(), file_man())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -116,6 +123,7 @@ If file specification did not match any files, an empty file collection
 is returned:
 
 ``` r
+
 pkg %>% collate(file_src())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -126,6 +134,7 @@ pkg %>% collate(file_src())
 Naturally, this would not add additional files to the collection:
 
 ``` r
+
 pkg %>% collate(file_r(), file_man(), file_src())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -146,6 +155,7 @@ pkg %>% collate(file_r(), file_man(), file_src())
 offers a default combination of the file specification templates.
 
 ``` r
+
 pkg %>% collate(file_default())
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -176,6 +186,7 @@ file extension. This is useful for directories like `inst/` that do not
 share a standard structure or filename pattern across packages.
 
 ``` r
+
 pkg %>% collate(file_auto("inst/"))
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------

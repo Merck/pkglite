@@ -13,6 +13,7 @@ You can merge file collections after they are collated. This operation
 returns the union of the files.
 
 ``` r
+
 library("pkglite")
 pkg <- system.file("examples/pkg1/", package = "pkglite")
 
@@ -50,6 +51,7 @@ To remove files from a file collection, use
 [`prune()`](https://merck.github.io/pkglite/reference/prune.md):
 
 ``` r
+
 fc %>% prune(path = c("NEWS.md", "man/figures/logo.png"))
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------
@@ -73,6 +75,7 @@ are removed, an empty file collection is returned so that it can still
 be merged with the other file collections.
 
 ``` r
+
 pkg %>%
   collate(file_data()) %>%
   prune(path = "data/dataset.rda")
@@ -89,6 +92,7 @@ excluded, such as the files defined in
 [`pattern_file_sanitize()`](https://merck.github.io/pkglite/reference/file_name_patterns.md):
 
 ``` r
+
 pattern_file_sanitize()
 #> [1] "/\\.DS_Store$"     "/Thumbs\\.db$"     "/\\.git$"         
 #> [4] "/\\.svn$"          "/\\.hg$"           "/\\.Rproj\\.user$"
@@ -100,6 +104,7 @@ You can use
 remove such files (if any) from a file collection:
 
 ``` r
+
 fc %>% sanitize()
 #> -- File collection -------------------------------------------------------
 #> -- Package: pkg1 ---------------------------------------------------------

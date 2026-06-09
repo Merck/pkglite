@@ -25,6 +25,7 @@ To demonstrate the basic usage of pkglite, we will show how to pack and
 unpack one or multiple R packages.
 
 ``` r
+
 library("pkglite")
 ```
 
@@ -33,6 +34,7 @@ library("pkglite")
 First, locate the input package directory and the output file:
 
 ``` r
+
 pkg <- system.file("examples/pkg1", package = "pkglite")
 txt <- tempfile(fileext = ".txt")
 ```
@@ -41,6 +43,7 @@ Use the following chain of calls to pack a default set of files in the R
 package under directory `pkg` into the file `txt`:
 
 ``` r
+
 pkg %>%
   collate(file_default()) %>%
   pack(output = txt, quiet = TRUE)
@@ -55,6 +58,7 @@ here. For details, check
 Check the first lines of the output file:
 
 ``` r
+
 txt %>%
   readLines() %>%
   head(11) %>%
@@ -75,6 +79,7 @@ txt %>%
 Check the number of lines the output file:
 
 ``` r
+
 txt %>%
   readLines() %>%
   length()
@@ -87,6 +92,7 @@ To unpack (restore) the file structures from the text file, use
 [`unpack()`](https://merck.github.io/pkglite/reference/unpack.md):
 
 ``` r
+
 out <- file.path(tempdir(), "onepkg")
 txt %>% unpack(output = out, quiet = TRUE)
 ```
@@ -95,6 +101,7 @@ This will create a directory named after the R package under the output
 directory:
 
 ``` r
+
 out %>%
   file.path("pkg1") %>%
   list.files()
@@ -112,6 +119,7 @@ one or more input directories. Therefore, one can pack multiple R
 packages (file collections) into one file at once:
 
 ``` r
+
 pkg1 <- system.file("examples/pkg1", package = "pkglite")
 pkg2 <- system.file("examples/pkg2", package = "pkglite")
 
@@ -125,6 +133,7 @@ Since the two example packages have almost identical content, the number
 of lines in the text file is doubled here (three header lines excluded):
 
 ``` r
+
 txt %>%
   readLines() %>%
   length()
@@ -137,11 +146,13 @@ Use the same call to unpack (and install) multiple R packages from the
 text file:
 
 ``` r
+
 out <- file.path(tempdir(), "twopkgs")
 txt %>% unpack(output = out, quiet = TRUE)
 ```
 
 ``` r
+
 out %>%
   file.path("pkg1") %>%
   list.files()
@@ -162,6 +173,7 @@ The file format specification for `pkglite.txt` is described in
 Verify if the text file contains only ASCII characters:
 
 ``` r
+
 txt %>% verify_ascii()
 #> [1] TRUE
 ```
@@ -169,10 +181,12 @@ txt %>% verify_ascii()
 Remove lines of file content from the text file:
 
 ``` r
+
 txt %>% remove_content(c("## New Features", "## Improvements"), quiet = TRUE)
 ```
 
 ``` r
+
 txt %>%
   readLines() %>%
   length()
