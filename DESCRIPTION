@@ -1,6 +1,6 @@
 Package: pkglite
 Title: Compact Package Representations
-Version: 0.2.5
+Version: 0.2.6
 Authors@R: c(
     person("Nan", "Xiao", role = c("aut"), comment = c(ORCID = "0000-0002-0250-5673")),
     person("Yilong", "Zhang", role = "aut"),

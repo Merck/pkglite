@@ -1,3 +1,7 @@
+# pkglite 0.2.6
+
+- Update maintainer email
+
 # pkglite 0.2.5
 
 ## Maintenance
